@@ -1,0 +1,193 @@
+{
+  "quiz": {
+    "title": "Dogs quiz (demo)",
+    "content": "<h3>How Well Do You Know Them?<\/h3>",
+    "image": "main-image.jpg"
+  },
+  "quiz_settings": {
+    "winner_points":15,
+    "start_button_text":"Start",
+    "expiration_date":"+2 weeks",
+    "coupon_amount":5,
+    "exp_date_format":"F j, Y",
+    "coupon_background_color":"#15154c",
+    "highlighted_color":"#c261e8",
+    "title_quiz_winner":"Congratulations!",
+    "text_quiz_winner":"<p>[quiz_certificate quiz_id=72]<\/p>",
+    "title_quiz_looser":"Better luck next time!",
+    "text_quiz_looser":"<p style=\"text-align: center;\",>It seems that you need to pay more attention to mankind’s best friends.<\/p><p style=\"text-align: center;\"><img class=\"aligncenter\" loading=\"lazy\" src=\"https:\/\/media.giphy.com\/media\/3orif43L8j0FOZsqM8\/giphy.gif\" \/><\/p>",
+    "hover_answer_color": "#cf76f2",
+    "correct_answer_color": "#00bc09",
+    "incorrect_answer_color": "#d30000",
+    "certificate_text":"Certificate",
+    "promocode_text":"Promo code",
+    "certificate_sale_text":"Sale",
+    "promocode_exp_text":"Valid until:",
+    "coupon_description":"<p>You can send it to your friend. The discount can be used only once in the specified period of time.<\/p>",
+    "form_description":"<p>We can send you this coupon by email<\/p>",
+    "display_email_form":"yes"
+  },
+  "quiz_questions": [
+    {"post_title":"What is the name of the smallest dog breed?",
+      "post_content":"",
+      "question_type":"image",
+      "question_options":[
+        {
+          "image_id":"Corgi.jpg",
+          "option":"Corgi",
+          "description":"While Corgis are small in size, their overall body structure and weight classify them as small to medium-sized dogs, not the absolute smallest breed."
+        },
+        {
+          "image_id":"Chihuahua-2.jpg",
+          "option":"Chihuahua",
+          "description":"Weighing in at a maximum of six pounds, the Chihuahua is the world's smallest dog breed. They might be small, but they tend to think they are big dogs, and they are fiercely protective of their owners.",
+          "answer":true
+        },
+        {
+          "image_id":"Poodle.jpg",
+          "option":"Poodle",
+          "description":"Poodles come in different sizes, including standard, miniature, and toy. While the toy-sized Poodles can be small, they are not the smallest dog breed."
+        },
+        {
+          "image_id":"Pug.jpg",
+          "option":"Pug",
+          "description":"Pugs are small and compact dogs, but they are not the smallest breed. They typically weigh between 14-18 pounds (6.4-8.2 kg)."
+        }
+      ]
+    },
+    {
+      "post_title":"Why do dogs chase their tails?",
+      "post_content":"",
+      "question_type":"text",
+      "question_options":[
+        {
+          "image_id":"",
+          "option":"For exercise",
+          "description":"This is a correct but not a complete answer. Dogs chase their tails for many reasons. This includes boredom, excitement, dealing with fleas, expelling some energy (especially in puppies), or something serious like an injury."
+        },
+        {
+          "image_id":"",
+          "option":"If they're anxious",
+          "description":"This is a correct but not a complete answer. Dogs chase their tails for many reasons. This includes boredom, excitement, dealing with fleas, expelling some energy (especially in puppies), or something serious like an injury."
+        },
+        {
+          "image_id":"",
+          "option":"If they have fleas",
+          "description":"This is a correct but not a complete answer. Dogs chase their tails for many reasons. This includes boredom, excitement, dealing with fleas, expelling some energy (especially in puppies), or something serious like an injury."
+        },
+        {
+          "image_id":"",
+          "option":"All of the above",
+          "description":"Dogs chase their tails for many reasons. This includes: boredom, excitement, dealing with fleas, expelling some energy (especially in puppies), or something serious like an injury.",
+          "answer":true
+        }
+      ]
+    },
+    {
+      "post_title":"What breed is Scooby-Doo?",
+      "post_content":"",
+      "question_type":"image",
+      "question_options":[
+        {
+          "image_id":"German-Shepherd-2.jpg",
+          "option":"German shepherd",
+          "description":"German Shepherds are a popular breed known for their intelligence, loyalty, and versatility. Scooby-Doo is famously known for his large size and goofy personality, which are not characteristic of German Shepherds."
+        },
+        {
+          "image_id":"Dalmatian.jpg",
+          "option":"Dalmatian",
+          "description":"While Dalmatians are known for their unique spotted coat and energetic nature, they do not share the same physical features or traits as Scooby-Doo."
+        },
+        {
+          "image_id":"Great-Dane.jpg",
+          "option":"Great Dane",
+          "description":"The character was created by Iwao Takamoto, animator at Hanna-Barbera Productions. Takamoto studied the breed when developing the character, but took plenty of liberties for the fictional series. The average male Great Dane can weigh up to 200 pounds and stand up to 34 inches tall with all four paws on the floor. It's no wonder Scooby was always wanting a snack!",
+          "answer":true
+        },
+        {
+          "image_id":"Airedale-Terrier.jpg",
+          "option":"Airedale terrier",
+          "description":"Airedale Terriers, also known as the \"King of Terriers\", are intelligent, courageous, and versatile dogs. However, Scooby-Doo is known for his massive size and easygoing personality, which are not typical of Airedale Terriers."
+        }
+      ]
+    },
+    {
+      "post_title":"Why do dogs have wet noses?",
+      "post_content":"",
+      "question_type":"text",
+      "question_options":[
+        {
+          "image_id":"",
+          "option":"Because they always have colds",
+          "description":"While it's true that a dog's nose can become wetter when they are unwell or have nasal congestion, a wet nose is a natural and normal condition for healthy dogs."
+        },
+        {
+          "image_id":"",
+          "option":"Because they are always licking them",
+          "description":"While dogs do lick their noses occasionally as part of their grooming behavior, the wetness of their noses is not primarily because of continuous licking."
+        },
+        {
+          "image_id":"",
+          "option":"To help absorb scent chemicals",
+          "description":"Your dog's wet nose helps maximize their sense of smell and cool them off.",
+          "answer":true
+        },
+        {
+          "image_id":"",
+          "option":"Because it's how they sweat",
+          "description":"Dogs do not primarily sweat through their noses. Unlike humans, dogs do not have sweat glands on their noses for thermoregulation."
+        }
+      ]
+    },
+    {
+      "post_title":"What's usually the most popular dog?",
+      "post_content":"",
+      "question_type":"image",
+      "question_options":[
+        {
+          "image_id":"Labrador-Retriever.jpg",
+          "option":"Labrador Retriever",
+          "description":"This big, friendly dog is a favorite pet. Years ago, their job was to retrieve game and help fishermen pull in their nets. Now, because they're so playful and sweet, they're an ideal family dog. They get along well with kids and other pets. They're kind, outgoing, and happy to be part of a busy family.",
+          "answer":true
+        },
+        {
+          "image_id":"German-Sheherd.jpg",
+          "option":"German Shepherd",
+          "description":"German Shepherds are highly intelligent and versatile dogs commonly used for police and military work, search and rescue, and service roles. But they are not typically the most popular breed."
+        },
+        {
+          "image_id":"Chihuahua.jpg",
+          "option":"Chihuahua",
+          "description":"Chihuahuas, known for their small size and big personalities. While they are adored by some people or families who prefer smaller dogs, their popularity does not match that of Labrador Retrievers."
+        },
+        {
+          "image_id":"Greyhound.jpg",
+          "option":"Greyhound",
+          "description":"Greyhounds are elegant, athletic dogs primarily known for their incredible speed. While they have their devoted admirers, they are not typically the most popular dog breed in terms of overall popularity."
+        }
+      ]
+    }
+  ],
+  "quiz_question_points":[
+    {
+      "question":"1",
+      "points":"5"
+    },
+    {
+      "question":"2",
+      "points":"5"
+    },
+    {
+      "question":"3",
+      "points":"5"
+    },
+    {
+      "question":"4",
+      "points":"5"
+    },
+    {
+      "question":"5",
+      "points":"5"
+    }
+  ]
+}
