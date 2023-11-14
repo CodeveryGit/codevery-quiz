@@ -1,9 +1,8 @@
 <?php
-
 /**
- * Provide a public-facing view for the plugin
+ * Display quiz html content
  *
- * This file is used to markup the public-facing aspects of the plugin.
+ * This file is used to markup the quiz content on front-end.
  *
  * @since      1.0.0
  *
@@ -12,20 +11,19 @@
  */
 
 $quiz_id = $args['id'];
-$quiz = $this->get_quiz( $quiz_id );
+$quiz    = $this->get_quiz( $quiz_id );
 ?>
 <?php if ( $quiz->have_posts() ) : ?>
     <?php while ( $quiz->have_posts() ) : $quiz->the_post();
-        $quiz_settings = $this->get_quiz_settings( $quiz_id );
-
-        $quiz_questions = $this->get_quiz_questions( $quiz_id );
+        $quiz_settings   = $this->get_quiz_settings( $quiz_id );
+        $quiz_questions  = $this->get_quiz_questions( $quiz_id );
         $count_questions = is_array( $quiz_questions ) ? count( $quiz_questions ) : 0;
         ?>
         <div class="cquiz">
             <div class="cquiz__title"><h2><?php the_title(); ?></h2></div>
             <div class="cquiz__form" data-max-points="<?php echo esc_attr( $quiz_settings['winner_points'] ); ?>">
                 <?php wp_nonce_field( 'cquiz_display', 'cquiz_display_nonce' ); ?>
-                <div class="cquiz__wrap" data-quiz-id="<?php echo get_the_ID(); ?>" data-question-page="0" data-question-length="<?php echo count( $quiz_questions ); ?>">
+                <div class="cquiz__wrap" data-quiz-id="<?php echo esc_attr( get_the_ID() ); ?>" data-question-page="0" data-question-length="<?php echo esc_attr( count( $quiz_questions ) ); ?>">
 
                     <p class="cquiz__page-title" data-page=""> <?php echo esc_html( get_the_title() ); ?> </p>
                     <?php if ( $count_questions ) : ?>
@@ -44,12 +42,15 @@ $quiz = $this->get_quiz( $quiz_id );
                     <?php if ( $count_questions ) : ?>
                         <?php foreach ( $quiz_questions as $index => $quiz_question ) : ?>
                             <?php
-                            $question_id    = $quiz_question['question'];
-                            $question_type  = get_post_meta( $question_id, 'question_type', true );
-                            $questions      = preg_replace( '/\\\\/', '', get_post_meta( $question_id, 'question_options', true ) );
-                            $questions      = json_decode( $questions, true );
+                            $question_id   = $quiz_question['question'];
+                            $question_type = get_post_meta( $question_id, 'question_type', true );
+                            $questions     = preg_replace( '/\\\\/', '', get_post_meta( $question_id, 'question_options', true ) );
+                            $questions     = json_decode( $questions, true );
                             ?>
                             <div class="cquiz__content cquiz__content-<?php echo esc_attr( $question_type ); ?>" data-page="<?php echo esc_attr( $index + 1 ); ?>">
+                                <?php if ( $quiz_description = get_post_field( 'post_content', $question_id ) ) : ?>
+                                    <div class="cquiz__content-description"><p><?php echo wp_kses_post( $quiz_description ); ?></p></div>
+                                <?php endif; ?>
                                 <div class="cquiz__content-answers cquiz__content-answers-<?php echo esc_attr( $question_type ); ?>">
                                 <?php if ( $questions ) : ?>
                                     <?php foreach ( $questions as $option_index => $question ) : ?>
@@ -103,7 +104,10 @@ $quiz = $this->get_quiz( $quiz_id );
                                         $shortcode = do_shortcode( $match[0] );
                                         $text_quiz_winner .= str_replace( $match[0], $shortcode, $quiz_settings['text_quiz_winner'] );
                                     }
+                                } else {
+                                    $text_quiz_winner = $quiz_settings['text_quiz_winner'];
                                 }
+                                // To allow form fields.
                                 echo wp_kses( $text_quiz_winner, cquiz_get_kses_array() );
                                 ?>
                                 <?php do_action( 'cquiz_result_page' ); ?>
@@ -112,7 +116,7 @@ $quiz = $this->get_quiz( $quiz_id );
                         <div class="cquiz__fail">
                             <p class="cquiz__result-points"></p>
                             <div class="cquiz__description">
-                                <?php echo wp_kses( $quiz_settings['text_quiz_looser'], cquiz_get_kses_array() ); ?>
+                                <?php echo wp_kses_post( $quiz_settings['text_quiz_looser'] ); ?>
                                 <?php do_action( 'cquiz_result_page' ); ?>
                             </div>
                         </div>
@@ -120,7 +124,7 @@ $quiz = $this->get_quiz( $quiz_id );
 
                     <div class="cquiz__footer">
                         <button type="button" class="btn btn-secondary cquiz__button" data-next_text="<?php esc_attr_e( 'Next', 'codevery-quiz' ); ?>">
-                            <span class="text"> <?php echo esc_html( $quiz_settings['start_button_text'] ); ?> </span>
+                            <?php echo esc_html( $quiz_settings['start_button_text'] ); ?>
                         </button>
                     </div>
 

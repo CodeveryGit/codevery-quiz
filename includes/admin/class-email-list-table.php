@@ -37,10 +37,10 @@ if ( ! class_exists( 'Email_List_Table' ) ) {
          */
         public function get_columns() {
             $columns = array(
-                'cb'                => '<input type="checkbox" />',
-                'email'             => __( 'Email', 'codevery-quiz' ),
-                'source'            => __( 'Source', 'codevery-quiz' ),
-                'last_passed_quiz'  => __( 'Last Passed', 'codevery-quiz' ),
+                'cb'               => '<input type="checkbox" />',
+                'email'            => __( 'Email', 'codevery-quiz' ),
+                'source'           => __( 'Source', 'codevery-quiz' ),
+                'last_passed_quiz' => __( 'Last Passed', 'codevery-quiz' ),
             );
 
             return $columns;
@@ -75,15 +75,13 @@ if ( ! class_exists( 'Email_List_Table' ) ) {
 
         /**
          * Define the data that should be displayed in the table
-         *
-         * @return array $data An array of data to display
          */
         public function prepare_items() {
             // Define the columns, sortable columns, and the data to display.
-            $columns    = $this->get_columns();
-            $sortable   = $this->get_sortable_columns();
-            $per_page   = 10;
-            $args = array(
+            $columns  = $this->get_columns();
+            $sortable = $this->get_sortable_columns();
+            $per_page = 10;
+            $args     = array(
                 'post_type'      => 'cquiz_email',
                 'posts_per_page' => $per_page,
                 'offset'         => ( $this->get_pagenum() - 1 ) * $per_page,
@@ -93,7 +91,7 @@ if ( ! class_exists( 'Email_List_Table' ) ) {
             );
 
             if ( ! empty( $_REQUEST['s'] ) ) {
-                $args['s'] = wp_unslash( $_REQUEST['s'] );
+                $args['s'] = sanitize_text_field( wp_unslash( $_REQUEST['s'] ) );
             }
 
             if ( ! empty( $_REQUEST['orderby'] ) ) {
@@ -124,7 +122,7 @@ if ( ! class_exists( 'Email_List_Table' ) ) {
             // Slice the data to display only the current page.
             $data = array_slice( $data, ( ( $current_page - 1 ) * $per_page ), $per_page );
 
-            // Set the properties of the table
+            // Set the properties of the table.
             $this->_column_headers = array( $columns, array(), $sortable );
             $this->items           = $data;
             $this->set_pagination_args( array(
@@ -246,11 +244,13 @@ if ( ! class_exists( 'Email_List_Table' ) ) {
 
             $link = add_query_arg(
                 array(
-                    'email' => $item->id,
+                    'email'  => $item->id,
                     'action' => 'delete',
                 ),
                 menu_page_url( 'email_list', false )
             );
+
+            $link = wp_nonce_url( $link, 'delete' );
 
             if ( current_user_can( 'manage_options', $item->id ) ) {
                 $actions['delete'] = sprintf(

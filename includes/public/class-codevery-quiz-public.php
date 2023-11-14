@@ -91,9 +91,9 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
 
             wp_register_script( $this->plugin_name, CODEVERY_QUIZ_PLUGIN_URI_ASSETS . 'js/cquiz-public' . $min . '.js', array( 'jquery' ), $this->version, false );
             wp_localize_script( $this->plugin_name, 'quizParams', apply_filters( 'cquiz_frontend_params', array(
-                'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-                'resultText' => __( 'You got <b>{score}</b> points', 'codevery-quiz' ),
-                'emptyEmailMsg' => __( 'Please enter an email address.', 'codevery-quiz' ),
+                'ajaxUrl'         => admin_url( 'admin-ajax.php' ),
+                'resultText'      => __( 'You got <b>{score}</b> points', 'codevery-quiz' ),
+                'emptyEmailMsg'   => __( 'Please enter an email address.', 'codevery-quiz' ),
                 'invalidEmailMsg' => __( 'Please enter a valid email address.', 'codevery-quiz' ),
             ) ) );
 
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
         public function quiz_shortcode( $atts ) {
 
             $args = shortcode_atts( array(
-                'id'   => '',
+                'id' => '',
             ), $atts );
             wp_enqueue_script( $this->plugin_name );
             wp_enqueue_style( $this->plugin_name );
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
             }
             <?php
             $styles = ob_get_clean();
-            wp_register_style( $this->plugin_name . '-dynamic', false );
+            wp_register_style( $this->plugin_name . '-dynamic', false, $this->version );
             wp_enqueue_style( $this->plugin_name . '-dynamic' );
             wp_add_inline_style( $this->plugin_name . '-dynamic', $styles );
             ob_start();
@@ -184,9 +184,9 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
             if ( ! check_ajax_referer( 'cquiz_send_coupon', 'cquiz_send_coupon_nonce', false ) ) {
                 wp_send_json_error( 'bad_nonce', 400 );
             }
-            $coupon_code = isset( $_POST['coupon'] ) ? esc_attr( wp_unslash( $_POST['coupon'] ) ) : '';
+            $coupon_code = isset( $_POST['coupon'] ) ? sanitize_text_field( wp_unslash( $_POST['coupon'] ) ) : '';
             $user_email = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
-            $quiz_id = isset( $_POST['quiz_id'] ) ? esc_attr( wp_unslash( $_POST['quiz_id'] ) ) : '';
+            $quiz_id = isset( $_POST['quiz_id'] ) ? absint( wp_unslash( $_POST['quiz_id'] ) ) : '';
 
             $quiz_settings = $this->get_quiz_settings( $quiz_id );
             $amount = $quiz_settings['coupon_amount'];
@@ -208,10 +208,9 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
                 } else {
                     $expiry_date = date( $exp_date_format, strtotime( $exp_date ) );
                 }
-
             }
 
-            // send mail to user
+            // Send mail to user.
             ob_start();
             require 'partials/certificate-email.php';
             $message = ob_get_clean();
@@ -226,7 +225,8 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
             $headers[] = "Content-Type:  $content_type; charset=UTF-8";
             $headers[] = "From: $from_name <$from_email> \r\n";
 
-            $subject = sprintf( __( '[%s]: Certificate', 'codevery-quiz' ), get_bloginfo( 'name' ) );
+            /* translators: %s: Site name. */
+            $subject = sprintf( esc_html__( '[%s]: Certificate', 'codevery-quiz' ), get_bloginfo( 'name' ) );
 
             if ( function_exists( 'wc_get_logger' ) && WP_DEBUG ) {
                 wc_get_logger()->info( 'SEND EMAIL', array( 'source' => 'CodeveryQuiz certificate email' ) );
@@ -239,31 +239,27 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
 
             // Save emails.
             $post_exists = post_exists( $user_email, '', '', 'cquiz_email' );
+            $last_pasted_quiz = '0000-00-00 00:00:00';
+            if ( $datetime = date_create_immutable( 'now', wp_timezone() ) ) {
+                $last_pasted_quiz = $datetime->format( 'Y-m-d H:i:s' );
+            }
             if ( ! $post_exists ) {
                 $post_id = wp_insert_post( array(
                     'post_type'   => 'cquiz_email',
                     'post_status' => 'publish',
                     'post_title'  => $user_email,
                 ) );
-                $last_pasted_quiz = '0000-00-00 00:00:00';
-                if ( $datetime = date_create_immutable( 'now', wp_timezone() ) ) {
-                    $last_pasted_quiz = $datetime->format( 'Y-m-d H:i:s' );
-                }
                 update_post_meta( $post_id, '_last_pasted_quiz', $last_pasted_quiz );
                 update_post_meta( $post_id, '_source', wp_json_encode( array( $quiz_id => 1 ) ) );
             } else {
-                $last_pasted_quiz = '0000-00-00 00:00:00';
-                if ( $datetime = date_create_immutable( 'now', wp_timezone() ) ) {
-                    $last_pasted_quiz = $datetime->format( 'Y-m-d H:i:s' );
-                }
                 update_post_meta( $post_exists, '_last_pasted_quiz', $last_pasted_quiz );
                 $source = get_post_meta( $post_exists, '_source', true );
                 if ( $source ) {
                     $source = json_decode( $source, true );
                     if ( $source && array_key_exists( $quiz_id, $source ) ) {
-                        $source[$quiz_id]++;
+                        $source[ $quiz_id ]++;
                     } else {
-                        $source[$quiz_id] = 1;
+                        $source[ $quiz_id ] = 1;
                     }
                     update_post_meta( $post_exists, '_source', wp_json_encode( $source ) );
                 }
@@ -282,7 +278,7 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
                 'message'     => $response_msg,
             );
 
-            echo json_encode( $response );
+            echo wp_json_encode( $response );
 
             wp_die();
         }
@@ -310,7 +306,7 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
 
                 $new_coupon_id = wp_insert_post( apply_filters( 'cquiz_create_coupon_args', $coupon, $quiz_id ) );
 
-                // Add meta
+                // Add coupon meta.
                 update_post_meta( $new_coupon_id, 'discount_type', $discount_type );
                 update_post_meta( $new_coupon_id, 'coupon_amount', $amount );
                 update_post_meta( $new_coupon_id, 'individual_use', 'no' );
@@ -335,7 +331,9 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
          * @return bool
          */
         public function check_if_coupon_valid( $couponcode ) {
-            if ( ! class_exists('WC_Coupon') )  return false;
+            if ( ! class_exists( 'WC_Coupon' ) ) {
+                return false;
+            }
             $coupon = new WC_Coupon( $couponcode );
             $discounts = new WC_Discounts( WC()->cart );
             $valid_response = $discounts->is_coupon_valid( $coupon );
@@ -352,10 +350,12 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
             if ( ! check_ajax_referer( 'cquiz_display', 'cquiz_display_nonce', false ) ) {
                 wp_send_json_error( 'bad_nonce', 400 );
             }
-            if ( ! class_exists('WC_Coupon') )  return false;
+            if ( ! class_exists( 'WC_Coupon' ) ) {
+                return false;
+            }
 
-            $coupon_code = isset( $_POST['coupon'] ) ? esc_attr( wp_unslash( $_POST['coupon'] ) ) : '';
-            $quiz_id = isset( $_POST['quiz_id'] ) ? esc_attr( wp_unslash( $_POST['quiz_id'] ) ) : '';
+            $coupon_code = isset( $_POST['coupon'] ) ? sanitize_text_field( wp_unslash( $_POST['coupon'] ) ) : '';
+            $quiz_id = isset( $_POST['quiz_id'] ) ? absint( wp_unslash( $_POST['quiz_id'] ) ) : '';
             $quiz_settings = $this->get_quiz_settings( $quiz_id );
             $exp_date = $quiz_settings['expiration_date'];
             $amount = $quiz_settings['coupon_amount'];
@@ -386,7 +386,7 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
          */
         public function get_quiz( $id, $args = array() ) {
             $default_args = array(
-                'post_type'   => 'quiz',
+                'post_type'   => CODEVERY_QUIZ_POST_TYPE,
                 'post_status' => 'publish',
                 'post__in'    => array( $id ),
             );
@@ -424,6 +424,10 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
         }
 
         public function export_email_list() {
+            if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'cquiz_email_list_export' ) ) {
+                wp_send_json_error( 'Invalid nonce value', 400 );
+                wp_die();
+            }
             $csv_file = "Email\n";
             $args = array(
                 'post_type'      => 'cquiz_email',
@@ -436,9 +440,9 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
                 foreach ( $emails as $email ) {
                     $csv_file .= $email->post_title . "\n";
                 }
-                echo wp_send_json_success( array( 'file_content' => $csv_file ) );
+                wp_send_json_success( array( 'file_content' => $csv_file ) );
             } else {
-                echo wp_send_json_error();
+                wp_send_json_error( 'Unable to export emails.' );
             }
 
             wp_die();

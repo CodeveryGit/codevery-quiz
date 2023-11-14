@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Register custom post type
  *
@@ -8,6 +7,7 @@
  * @package    Codevery_Quiz
  * @subpackage Codevery_Quiz/includes
  */
+
 if ( ! class_exists( 'Codevery_Quiz_Post_Types' ) ) {
 
     class Codevery_Quiz_Post_Types {
@@ -35,57 +35,57 @@ if ( ! class_exists( 'Codevery_Quiz_Post_Types' ) ) {
 
             /** Quiz */
             $args = array(
-                'label'                 => __( 'Quiz', 'codevery-quiz' ),
-                'labels'                => array(
-                    'name'                  => _x( 'Quiz', 'Post Type General Name', 'codevery-quiz' ),
-                    'singular_name'         => _x( 'Quiz', 'Post Type Singular Name', 'codevery-quiz' ),
-                    'menu_name'             => __( 'Quizzes', 'codevery-quiz' ),
-                    'name_admin_bar'        => __( 'Quiz', 'codevery-quiz' ),
-                    'all_items'             => __( 'Quizzes', 'codevery-quiz' ),
+                'label'               => __( 'Quiz', 'codevery-quiz' ),
+                'labels'              => array(
+                    'name'           => _x( 'Quiz', 'Post Type General Name', 'codevery-quiz' ),
+                    'singular_name'  => _x( 'Quiz', 'Post Type Singular Name', 'codevery-quiz' ),
+                    'menu_name'      => __( 'Quizzes', 'codevery-quiz' ),
+                    'name_admin_bar' => __( 'Quiz', 'codevery-quiz' ),
+                    'all_items'      => __( 'Quizzes', 'codevery-quiz' ),
                 ),
-                'supports'              => array( 'title', 'editor', 'thumbnail' ),
-                'hierarchical'          => false,
-                'public'                => false,
-                'show_ui'               => true,
-                'show_in_menu'          => 'codevery-quiz',
-                'menu_position'         => 19,
-                'menu_icon'             => 'dashicons-list-view',
-                'show_in_admin_bar'     => true,
-                'show_in_nav_menus'     => false,
-                'show_in_rest'          => true,
-                'can_export'            => true,
-                'has_archive'           => false,
-                'exclude_from_search'   => true,
-                'publicly_queryable'    => false,
-                'capability_type'       => 'page',
+                'supports'            => array( 'title', 'editor', 'thumbnail' ),
+                'hierarchical'        => false,
+                'public'              => false,
+                'show_ui'             => true,
+                'show_in_menu'        => 'codevery-quiz',
+                'menu_position'       => 19,
+                'menu_icon'           => 'dashicons-list-view',
+                'show_in_admin_bar'   => true,
+                'show_in_nav_menus'   => false,
+                'show_in_rest'        => true,
+                'can_export'          => true,
+                'has_archive'         => false,
+                'exclude_from_search' => true,
+                'publicly_queryable'  => false,
+                'capability_type'     => 'page',
             );
             register_post_type( CODEVERY_QUIZ_POST_TYPE, $args );
 
             /** Quiz Questions */
             $args = array(
-                'label'                 => __( 'Question', 'codevery-quiz' ),
-                'labels'                => array(
-                    'name'                  => _x( 'Questions', 'Post Type General Name', 'codevery-quiz' ),
-                    'singular_name'         => _x( 'Question', 'Post Type Singular Name', 'codevery-quiz' ),
-                    'menu_name'             => __( 'Questions', 'codevery-quiz' ),
-                    'name_admin_bar'        => __( 'Questions', 'codevery-quiz' ),
-                    'all_items'             => __( 'Questions', 'codevery-quiz' ),
+                'label'               => __( 'Question', 'codevery-quiz' ),
+                'labels'              => array(
+                    'name'           => _x( 'Questions', 'Post Type General Name', 'codevery-quiz' ),
+                    'singular_name'  => _x( 'Question', 'Post Type Singular Name', 'codevery-quiz' ),
+                    'menu_name'      => __( 'Questions', 'codevery-quiz' ),
+                    'name_admin_bar' => __( 'Questions', 'codevery-quiz' ),
+                    'all_items'      => __( 'Questions', 'codevery-quiz' ),
                 ),
-                'supports'              => array( 'title', 'editor' ),
-                'hierarchical'          => false,
-                'public'                => false,
-                'show_ui'               => true,
-                'show_in_menu'          => 'codevery-quiz',
-                'menu_position'         => 20,
-                'menu_icon'             => 'dashicons-format-chat',
-                'show_in_admin_bar'     => true,
-                'show_in_nav_menus'     => false,
-                'show_in_rest'          => true,
-                'can_export'            => true,
-                'has_archive'           => false,
-                'exclude_from_search'   => true,
-                'publicly_queryable'    => false,
-                'capability_type'       => 'page',
+                'supports'            => array( 'title', 'editor' ),
+                'hierarchical'        => false,
+                'public'              => false,
+                'show_ui'             => true,
+                'show_in_menu'        => 'codevery-quiz',
+                'menu_position'       => 20,
+                'menu_icon'           => 'dashicons-format-chat',
+                'show_in_admin_bar'   => true,
+                'show_in_nav_menus'   => false,
+                'show_in_rest'        => true,
+                'can_export'          => true,
+                'has_archive'         => false,
+                'exclude_from_search' => true,
+                'publicly_queryable'  => false,
+                'capability_type'     => 'page',
             );
             register_post_type( 'quiz_question', $args );
 
@@ -169,8 +169,8 @@ if ( ! class_exists( 'Codevery_Quiz_Post_Types' ) ) {
                     if ( ! empty( $pages ) ) {
                         echo '<ul>';
                         foreach ( $pages as $page ) {
-                            $page_title = $page->post_title ? esc_html( $page->post_title ) : __( '(no title)' );
-                            echo '<li><a href="' . esc_url( get_permalink( $page->ID ) ) . '">' . $page_title . '</a></li>';
+                            $page_title = $page->post_title ? $page->post_title : __( '(no title)' );
+                            echo '<li><a href="' . esc_url( get_permalink( $page->ID ) ) . '">' . esc_html( $page_title ) . '</a></li>';
                         }
                         echo '</ul>';
                     }
@@ -197,7 +197,7 @@ if ( ! class_exists( 'Codevery_Quiz_Post_Types' ) ) {
          * @return bool
          */
         public function use_classic_editor( $use_classic_editor, $post_type ) {
-            if ( 'quiz' === $post_type || 'quiz_question' === $post_type ) {
+            if ( CODEVERY_QUIZ_POST_TYPE === $post_type || 'quiz_question' === $post_type ) {
                 return false;
             }
             return $use_classic_editor;

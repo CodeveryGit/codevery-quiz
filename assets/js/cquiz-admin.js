@@ -30,11 +30,11 @@
             $( '#quiz-repeater-items' ).sortable({
                 handle: '.drag-item',
                 cursor: 'grabbing',
-                start : function( event, ui ) {
+                start: function( event, ui ) {
                     let start_pos = ui.item.index();
                     ui.item.data( 'start_pos', start_pos );
                 },
-                update : function( event, ui ) {
+                update: function( event, ui ) {
                     let index = ui.item.index();
                     let start_pos = ui.item.data( 'start_pos' );
                     cquiz_repeater_reorder( index, start_pos );
@@ -191,9 +191,9 @@
         pUrl += `&field_id=${questionFieldId}`;
         $( 'body' ).append("<div id='cquiz-modal_overlay'></div><div id='cquiz-modal_window' class='cquiz-modal-loading'></div>");
         $( '#cquiz-modal_window' ).append("<div id='cquiz-modal_wrap'><div id='cquiz-modal_heading'>" +
-            "<div id='cquiz-modal_title'>"+pTitle+"</div>" +
+            "<div id='cquiz-modal_title'>" + pTitle + "</div>" +
             "<div><button type='button' id='cquiz-modal_close-window'><span class='dashicons dashicons-no-alt'></span></button></div></div>" +
-            "<iframe frameborder='0' hspace='0' allowtransparency='true' src='"+pUrl+"' id='cquizModalContent' name='cquizModalContent"+Math.round(Math.random()*1000)+"' width='1024' height='800' style='width:100%;max-height: 75vh;' ></iframe></div>");
+            "<iframe frameborder='0' hspace='0' allowtransparency='true' src='" + pUrl + "' id='cquizModalContent' name='cquizModalContent" + Math.round(Math.random() * 1000) + "' width='1024' height='800' style='width:100%;max-height: 75vh;' ></iframe></div>");
         $( 'body' ).addClass( 'modal-open' );
         $( '#cquiz-modal_close-window' ).on( 'click', cqCloseModal );
     } );
@@ -215,7 +215,7 @@
             itemWrap.querySelector( '.item-title' ).textContent = resultData.question_title;
             cqCloseModal( true );
 
-            //show message
+            // show message.
             let itemContent = select.closest( '.item-body-content' );
             let message = document.createElement( 'div' );
             message.classList.add( 'quiz_success-message', 'cquiz-message-slideup', 'closed' );
@@ -251,7 +251,7 @@
             let cquizForm = $( '#cquiz_question' );
             let inputs = cquizForm.serializeArray();
             let select_id = this.dataset.field_id;
-            $.each( inputs,  ( i, input ) =>  {
+            $.each( inputs, ( i, input ) => {
                 formData[input.name] = input.value;
             } );
             formData['action'] = 'cquiz_add_new_question';
@@ -290,7 +290,8 @@
             type: 'post',
             dataType: 'json',
             data: {
-                action: 'cquiz_export_email_list'
+                action: 'cquiz_export_email_list',
+                nonce: document.getElementById( 'cquiz_email_export_nonce' ).value
             },
             beforeSend: () => {
                 exportButton.css( 'pointer-events', 'none' );
@@ -307,10 +308,13 @@
                     link.href = URL.createObjectURL( file );
                     link.download = `quiz-emails-${year}${month}${day}${currentDate.getHours()}${currentDate.getMinutes()}${currentDate.getSeconds()}.csv`;
                     link.click();
-                    URL.revokeObjectURL(link.href);
+                    URL.revokeObjectURL( link.href );
+                } else {
+                    alert( response.data );
                 }
             },
             error: function( error ) {
+                alert( error.responseJSON.data );
                 console.log( error );
             }
         });

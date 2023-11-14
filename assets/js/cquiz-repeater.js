@@ -8,11 +8,12 @@
                 data: function( params ) {
                     return {
                         q: params.term,
+                        nonce: document.getElementById( 'cquiz_question_metabox_nonce' ).value,
                         action: 'cquiz_get_questions',
                     }
                 },
                 dataType: 'json',
-                    processResults: function( data ) {
+                processResults: function( data ) {
                     var options = [];
                     if ( data ) {
                         data.forEach( function( value, index ) {
@@ -23,6 +24,7 @@
                         results: options
                     };
                 },
+                minimumInputLength: 2,
             };
             let hasOption = function( optionKey ) {
                 return options.hasOwnProperty( optionKey );
@@ -88,7 +90,7 @@
                 items.find( 'input, select, textarea' ).each( function( index, el ) {
                     $( el ).attr( 'name', '' );
                 });
-                $( '.add-select2 select' ).select2( ajaxArgs ).closest( '.item' ).removeClass( 'add-select2' );
+                $( '.add-select2 select' ).select2().closest( '.item' ).removeClass( 'add-select2' );
             };
 
             /* find elements */
@@ -97,7 +99,7 @@
             let addButton = this.find( '.cquiz-add-item' );
 
             $( document ).ready( function() {
-                $( '#quiz_settings .item select.quiz-question' ).select2( ajaxArgs );
+                $( '#quiz_settings .item select.quiz-question' ).select2();
             });
 
 

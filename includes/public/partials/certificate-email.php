@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <html <?php language_attributes(); ?>>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
-        <title><?php echo get_bloginfo( 'name', 'display' ); ?></title>
+        <title><?php echo esc_html( get_bloginfo( 'name', 'display' ) ); ?></title>
     </head>
     <body>
-        <?php echo get_post_meta( $quiz_id, 'email_layout', true ); ?>
+        <?php echo wp_kses_post( get_post_meta( $quiz_id, 'email_layout', true ) ); ?>
     </body>
 </html>

@@ -9,25 +9,25 @@ if ( ! function_exists( 'cquiz_ua_date_format' ) ) {
      */
     function cquiz_ua_date_format( $date, $year_text = 'року' ) {
         $months_list = array(
-            "01" => "січня",
-            "02" => "лютого",
-            "03" => "березня",
-            "04" => "квітня",
-            "05" => "травня",
-            "06" => "червня",
-            "07" => "липня",
-            "08" => "серпня",
-            "09" => "вересня",
-            "10" => "жовтня",
-            "11" => "листопада",
-            "12" => "грудня"
+            '01' => 'січня',
+            '02' => 'лютого',
+            '03' => 'березня',
+            '04' => 'квітня',
+            '05' => 'травня',
+            '06' => 'червня',
+            '07' => 'липня',
+            '08' => 'серпня',
+            '09' => 'вересня',
+            '10' => 'жовтня',
+            '11' => 'листопада',
+            '12' => 'грудня',
         );
 
         if ( ! $date ) {
             $date = strtotime( 'now' );
         }
         $date_day = date( 'd ', $date );
-        $date_month = $months_list[date( 'm', $date )];
+        $date_month = $months_list[ date( 'm', $date ) ];
 
         $date_year = date( " Y $year_text", $date );
         $result = $date_day . $date_month . $date_year;
@@ -52,14 +52,14 @@ if ( ! function_exists( 'cquiz_get_custom_logo' ) ) {
         // We have a logo. Logo is go.
         if ( $custom_logo_id ) {
             $custom_logo_attr = array(
-                'class' => 'custom-logo',
+                'class'   => 'custom-logo',
                 'loading' => false,
             );
             $custom_logo_attr = wp_parse_args( $attr, $custom_logo_attr );
 
-            $unlink_homepage_logo = (bool)get_theme_support( 'custom-logo', 'unlink-homepage-logo' );
+            $unlink_homepage_logo = (bool) get_theme_support( 'custom-logo', 'unlink-homepage-logo' );
 
-            if ( $unlink_homepage_logo && is_front_page() && !is_paged() ) {
+            if ( $unlink_homepage_logo && is_front_page() && ! is_paged() ) {
                 /*
                  * If on the home page, set the logo alt attribute to an empty string,
                  * as the image is decorative and doesn't need its purpose to be described.
@@ -82,14 +82,14 @@ if ( ! function_exists( 'cquiz_get_custom_logo' ) ) {
              */
             $image = wp_get_attachment_image( $custom_logo_id, 'full', false, $custom_logo_attr );
 
-            if ( $unlink_homepage_logo && is_front_page() && !is_paged() ) {
+            if ( $unlink_homepage_logo && is_front_page() && ! is_paged() ) {
                 // If on the home page, don't link the logo to home.
                 $html = sprintf(
                     '<span class="custom-logo-link">%1$s</span>',
                     $image
                 );
             } else {
-                $aria_current = is_front_page() && !is_paged() ? ' aria-current="page"' : '';
+                $aria_current = is_front_page() && ! is_paged() ? ' aria-current="page"' : '';
 
                 $html = sprintf(
                     '<a href="%1$s" class="custom-logo-link" rel="home"%2$s>%3$s</a>',
@@ -112,44 +112,44 @@ if ( ! function_exists( 'cquiz_upload_file_by_url' ) ) {
      * @return bool|int|WP_Error
      */
     function cquiz_upload_file_by_url( $image_url ) {
-        require_once( ABSPATH . 'wp-admin/includes/file.php' );
+        require_once ABSPATH . 'wp-admin/includes/file.php';
         $temp_file = download_url( $image_url );
         if ( is_wp_error( $temp_file ) ) {
             return false;
         }
         $file = array(
-            'name' => basename( $image_url ),
-            'type' => mime_content_type( $temp_file ),
+            'name'     => basename( $image_url ),
+            'type'     => mime_content_type( $temp_file ),
             'tmp_name' => $temp_file,
-            'size' => filesize( $temp_file ),
+            'size'     => filesize( $temp_file ),
         );
         $sideload = wp_handle_sideload(
             $file,
             array(
-                'test_form' => false // no needs to check 'action' parameter
+                'test_form' => false, // no needs to check 'action' parameter.
             )
         );
 
-        if ( !empty( $sideload['error'] ) ) {
-            // you may return error message if you want
+        if ( ! empty( $sideload['error'] ) ) {
+            // you may return error message if you want.
             return false;
         }
 
-        // it is time to add our uploaded image into WordPress media library
+        // it is time to add our uploaded image into WordPress media library.
         $attachment_id = wp_insert_attachment(
             array(
-                'guid' => $sideload['url'],
+                'guid'           => $sideload['url'],
                 'post_mime_type' => $sideload['type'],
-                'post_title' => basename( $sideload['file'] ),
-                'post_content' => '',
-                'post_status' => 'inherit',
+                'post_title'     => basename( $sideload['file'] ),
+                'post_content'   => '',
+                'post_status'    => 'inherit',
             ),
             $sideload['file']
         );
-        if ( is_wp_error( $attachment_id ) || !$attachment_id ) {
+        if ( is_wp_error( $attachment_id ) || ! $attachment_id ) {
             return false;
         }
-        require_once( ABSPATH . 'wp-admin/includes/image.php' );
+        require_once ABSPATH . 'wp-admin/includes/image.php';
         wp_update_attachment_metadata( $attachment_id, wp_generate_attachment_metadata( $attachment_id, $sideload['file'] ) );
 
         return $attachment_id;
@@ -166,12 +166,12 @@ if ( ! function_exists( 'cquiz_get_kses_array' ) ) {
     function cquiz_get_kses_array() {
         return array(
             'a' => array(
-                'class' => array(),
-                'href' => array(),
-                'rel' => array(),
-                'title' => array(),
+                'class'  => array(),
+                'href'   => array(),
+                'rel'    => array(),
+                'title'  => array(),
                 'target' => array(),
-                'style' => array(),
+                'style'  => array(),
             ),
             'abbr' => array(
                 'title' => array(),
@@ -192,14 +192,14 @@ if ( ! function_exists( 'cquiz_get_kses_array' ) ) {
                 'title' => array(),
             ),
             'code' => array(),
-            'pre' => array(),
-            'del' => array(
+            'pre'  => array(),
+            'del'  => array(
                 'datetime' => array(),
-                'title' => array(),
+                'title'    => array(),
             ),
             'dd' => array(),
             'div' => array(
-                'id' => array(),
+                'id'    => array(),
                 'class' => array(),
                 'title' => array(),
                 'style' => array(),
@@ -207,6 +207,7 @@ if ( ! function_exists( 'cquiz_get_kses_array' ) ) {
             'dl' => array(),
             'dt' => array(),
             'em' => array(),
+            'u' => array(),
             'strong' => array(),
             'h1' => array(
                 'class' => array(),
@@ -272,7 +273,7 @@ if ( ! function_exists( 'cquiz_get_kses_array' ) ) {
             ),
             'strike' => array(),
             'style' => array(),
-            'br' => array(),
+            'br'    => array(),
             'table' => array(),
             'thead' => array(),
             'tbody' => array(),
@@ -300,8 +301,8 @@ if ( ! function_exists( 'cquiz_get_kses_array' ) ) {
                 'viewbox' => true,
                 'preserveaspectratio' => true,
             ),
-            'g' => array('fill' => true),
-            'title' => array('title' => true),
+            'g' => array( 'fill' => true ),
+            'title' => array( 'title' => true ),
             'path' => array(
                 'd' => true,
                 'fill' => true,
@@ -319,7 +320,8 @@ if ( ! function_exists( 'cquiz_get_kses_array' ) ) {
                 'value' => array(),
                 'placeholder' => array(),
                 'required' => array(),
-            )
+                'aria-required' => array(),
+            ),
         );
     }
 }
