@@ -210,7 +210,10 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
             }
 
             if ( $post->post_type == 'quiz_question' ) {
-                $this->save_quiz_question_data( $post_id, wp_unslash( $_POST ) );
+                $answers        = isset( $_POST['answers'] ) ? map_deep( wp_unslash( $_POST['answers'] ), 'sanitize_text_field' ) : '';
+                $correct_answer = isset( $_POST['answer'] ) ? absint( wp_unslash( $_POST['answer'] ) ) : 0;
+                $question_type  = isset( $_POST['question_type'] ) ? sanitize_text_field( wp_unslash( $_POST['question_type'] ) ) : '';
+                $this->save_quiz_question_data( $post_id, $answers, $correct_answer, $question_type );
             }
 
             return $post_id;
@@ -221,13 +224,13 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
          * Save quiz question data to db
          *
          * @param $post_id
-         * @param $data
+         * @param $answers
+         * @param $correct_answer
+         * @param $question_type
          */
-        public function save_quiz_question_data( $post_id, $data ) {
-            if ( isset( $data['answers'] ) ) {
-                $answers = map_deep( $data['answers'], 'sanitize_text_field' );
-                $correct_answer_key = isset( $data['answer'] ) ? absint( $data['answer'] ) : 0;
-                $answers[ $correct_answer_key ]['answer'] = true;
+        public function save_quiz_question_data( $post_id, $answers, $correct_answer, $question_type ) {
+            if ( $answers ) {
+                $answers[ $correct_answer ]['answer'] = true;
                 $answers = array_values( $answers );
                 $answers = array_map( function( $value ) {
                     $pattern = '/[\[\]{}]/';
@@ -239,8 +242,8 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
                 $question_options = wp_json_encode( $answers, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
                 update_post_meta( $post_id, 'question_options', $question_options );
             }
-            if ( isset( $_POST['question_type'] ) ) {
-                update_post_meta( $post_id, 'question_type', sanitize_text_field( wp_unslash( $_POST['question_type'] ) ) );
+            if ( $question_type ) {
+                update_post_meta( $post_id, 'question_type', $question_type );
             }
         }
 
@@ -390,7 +393,10 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
             $result['question_title'] = $title;
             $result['success_msg']    = __( 'New question has been saved', 'codevery-quiz' );
 
-            $this->save_quiz_question_data( $post_id, wp_unslash( $_POST ) );
+            $answers        = isset( $_POST['answers'] ) ? map_deep( wp_unslash( $_POST['answers'] ), 'sanitize_text_field' ) : '';
+            $correct_answer = isset( $_POST['answer'] ) ? absint( wp_unslash( $_POST['answer'] ) ) : 0;
+            $question_type  = isset( $_POST['question_type'] ) ? sanitize_text_field( wp_unslash( $_POST['question_type'] ) ) : '';
+            $this->save_quiz_question_data( $post_id, $answers, $correct_answer, $question_type );
             wp_send_json_success( $result );
             die;
         }
