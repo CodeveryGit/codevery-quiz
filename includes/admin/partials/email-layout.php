@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
+
 if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
     $logo = cquiz_get_custom_logo( array( 'style' => 'max-width:320px;height:auto;margin:auto;' ) );
 } else {

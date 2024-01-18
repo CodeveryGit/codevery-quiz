@@ -1,3 +1,5 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly. ?>
+
 <div id="quiz_settings" class="quiz-add-new-question">
     <form name="cquiz_question" action="" method="post" id="cquiz_question">
         <?php wp_nonce_field( 'cquiz_new_question', 'cquiz_new_question_nonce' ); ?>

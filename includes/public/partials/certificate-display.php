@@ -7,6 +7,7 @@
  * @package    Codevery_Quiz
  * @subpackage Codevery_Quiz/public/partials
  */
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
 $quiz_id = $atts['quiz_id'];
 $quiz_settings = $this->get_quiz_settings( $quiz_id );

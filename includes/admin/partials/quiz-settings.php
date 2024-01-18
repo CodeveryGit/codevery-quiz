@@ -1,3 +1,5 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly. ?>
+
 <div>
     <div class="tabs-nav">
         <a href="#questions" class="active">

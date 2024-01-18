@@ -1,3 +1,5 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly. ?>
+
 <div id="quiz_settings">
     <div class="cquiz-settings-row"></div>
     <div class="cquiz-settings-row">
