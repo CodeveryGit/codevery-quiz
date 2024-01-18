@@ -256,7 +256,7 @@ if ( ! class_exists( 'Email_List_Table' ) ) {
                 $actions['delete'] = sprintf(
                     '<a class="cquiz-delete-email-action" href="%1$s">%2$s</a>',
                     esc_url( $link ),
-                    esc_html( __( 'Delete' ) )
+                    esc_html__( 'Delete' )
                 );
             }
 

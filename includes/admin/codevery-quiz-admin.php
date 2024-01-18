@@ -142,7 +142,7 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
                 }
 
                 // print the preview email.
-                echo $message; // phpcs:ignore WordPress.Security.EscapeOutput
+                echo wp_kses_post( $message );
 
                 exit;
             }
@@ -183,9 +183,9 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
                     'coupon_background_color' => isset( $_POST['coupon_background_color'] ) ? sanitize_hex_color( $_POST['coupon_background_color'] ) : '',
                     'highlighted_color'       => isset( $_POST['highlighted_color'] ) ? sanitize_hex_color( $_POST['highlighted_color'] ) : '',
                     'title_quiz_winner'       => isset( $_POST['title_quiz_winner'] ) ? sanitize_text_field( $_POST['title_quiz_winner'] ) : '',
-                    'text_quiz_winner'        => isset( $_POST['text_quiz_winner'] ) ? preg_replace( "/\r|\n/", '', wp_kses_post( wpautop( $_POST['text_quiz_winner'] ) ) ) : '',
+                    'text_quiz_winner'        => isset( $_POST['text_quiz_winner'] ) ? preg_replace( "/\r|\n/", '', wp_kses_post( wp_unslash( $_POST['text_quiz_winner'] ) ) ) : '',
                     'title_quiz_looser'       => isset( $_POST['title_quiz_looser'] ) ? sanitize_text_field( $_POST['title_quiz_looser'] ) : '',
-                    'text_quiz_looser'        => isset( $_POST['text_quiz_looser'] ) ? preg_replace( "/\r|\n/", '', wp_kses_post( wpautop( $_POST['text_quiz_looser'], false ) ) ) : '',
+                    'text_quiz_looser'        => isset( $_POST['text_quiz_looser'] ) ? preg_replace( "/\r|\n/", '', wp_kses_post( wp_unslash( $_POST['text_quiz_looser'] ) ) ) : '',
                     'hover_answer_color'      => isset( $_POST['hover_answer_color'] ) ? sanitize_hex_color( $_POST['hover_answer_color'] ) : '',
                     'correct_answer_color'    => isset( $_POST['correct_answer_color'] ) ? sanitize_hex_color( $_POST['correct_answer_color'] ) : '',
                     'incorrect_answer_color'  => isset( $_POST['incorrect_answer_color'] ) ? sanitize_hex_color( $_POST['incorrect_answer_color'] ) : '',
@@ -193,9 +193,9 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
                     'promocode_text'          => isset( $_POST['promocode_text'] ) ? sanitize_text_field( $_POST['promocode_text'] ) : '',
                     'certificate_sale_text'   => isset( $_POST['certificate_sale_text'] ) ? sanitize_text_field( $_POST['certificate_sale_text'] ) : '',
                     'promocode_exp_text'      => isset( $_POST['promocode_exp_text'] ) ? sanitize_text_field( $_POST['promocode_exp_text'] ) : '',
-                    'coupon_description'      => isset( $_POST['coupon_description'] ) ? preg_replace( "/\r|\n/", '', wp_kses_post( wpautop( $_POST['coupon_description'] ) ) ) : '',
-                    'form_description'        => isset( $_POST['form_description'] ) ? preg_replace( "/\r|\n/", '', wp_kses_post( wpautop( $_POST['form_description'] ) ) ) : '',
-                    'display_email_form'      => isset( $_POST['display_email_form'] ) ? sanitize_text_field( $_POST['display_email_form'] ) : '',
+                    'coupon_description'      => isset( $_POST['coupon_description'] ) ? preg_replace( "/\r|\n/", '', wp_kses_post( wp_unslash( $_POST['coupon_description'] ) ) ) : '',
+                    'form_description'        => isset( $_POST['form_description'] ) ? preg_replace( "/\r|\n/", '', wp_kses_post( wp_unslash( $_POST['form_description'] ) ) ) : '',
+                    'display_email_form'      => isset( $_POST['display_email_form'] ) ? sanitize_text_field( wp_unslash( $_POST['display_email_form'] ) ) : '',
                 );
                 $quiz_settings = array_map( function( $value ) {
                     $value = htmlspecialchars( $value, ENT_QUOTES );

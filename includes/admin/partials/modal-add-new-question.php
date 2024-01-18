@@ -110,7 +110,7 @@
         </div>
         <div class="cquiz-action-buttons">
             <span class="spinner"></span>
-            <button type="submit" class="button button-primary cquiz-button cquiz-save-item" data-field_id="<?php echo isset( $_REQUEST['field_id'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['field_id'] ) ) : ''; ?>">
+            <button type="submit" class="button button-primary cquiz-button cquiz-save-item" data-field_id="<?php echo isset( $_REQUEST['field_id'] ) ? esc_attr( sanitize_text_field( wp_unslash( $_REQUEST['field_id'] ) ) ) : ''; ?>">
                 <?php esc_html_e( 'Save', 'codevery-quiz' ); ?>
             </button>
         </div>

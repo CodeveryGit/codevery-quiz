@@ -51,13 +51,13 @@ if ( ! class_exists( 'Codevery_Quiz_Email_List' ) ) {
             ?>
             <div class="wrap">
 
-                <h1 class="wp-heading-inline"><?php echo esc_html( __( 'Quiz Emails', 'codevery-quiz' ) ); ?></h1>
+                <h1 class="wp-heading-inline"><?php echo esc_html__( 'Quiz Emails', 'codevery-quiz' ); ?></h1>
 
                 <?php
                 if ( ! empty( $_REQUEST['s'] ) ) {
                     echo sprintf( '<span class="subtitle">'
                         . esc_html__( 'Search results for &#8220;%s&#8221;', 'codevery-quiz' )
-                        . '</span>', esc_html( wp_unslash( $_REQUEST['s'] ) ) );
+                        . '</span>', esc_html( sanitize_text_field( wp_unslash( $_REQUEST['s'] ) ) ) );
                 }
                 ?>
 
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Codevery_Quiz_Email_List' ) ) {
                 </div>
 
                 <form method="get" action="">
-                    <input type="hidden" name="page" value="<?php echo ! empty( $_REQUEST['page'] ) ? esc_attr( wp_unslash( $_REQUEST['page'] ) ) : ''; ?>" />
+                    <input type="hidden" name="page" value="<?php echo ! empty( $_REQUEST['page'] ) ? esc_attr( sanitize_text_field( wp_unslash( $_REQUEST['page'] ) ) ) : ''; ?>" />
                     <?php $list_table->search_box( esc_html__( 'Search emails', 'codevery-quiz' ), 'cquiz-email' ); ?>
                     <?php $list_table->display(); ?>
                 </form>

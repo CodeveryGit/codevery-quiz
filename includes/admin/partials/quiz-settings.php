@@ -171,11 +171,10 @@
                 </div>
             <?php
             else :
-                esc_html_e( 'You need to create questions first.' );
                 printf(
-                /* translators: %s: URL to WordPress Updates screen. */
-                    ' ' . __( 'Click <a href="%s" target="_parent">here</a> to create a new question.' ),
-                    esc_url( admin_url( 'post-new.php?post_type=quiz_question' ) )
+                /* translators: 1: URL to Add New Question screen. */
+                    esc_html__( 'You need to create questions first. Click %1$s to create a new question.', 'codevery-quiz' ),
+                    '<a href="' . esc_url( admin_url( 'post-new.php?post_type=quiz_question' ) ) . '" target="_parent">' . esc_html__( 'here', 'codevery-quiz' ) . '</a>'
                 );
             endif;
             ?>
@@ -338,7 +337,7 @@
                                         if ( $custom_logo_id ) {
                                             echo sprintf(
                                                 '<a href="javascript:void(0);" class="cquiz-certificate__footer-logo" rel="home">%1$s</a>',
-                                                wp_get_attachment_image( $custom_logo_id, array( 200, 50 ) )
+                                                wp_kses_post( wp_get_attachment_image( $custom_logo_id, array( 200, 50 ) ) )
                                             );
                                         }
                                         ?>
@@ -370,7 +369,7 @@
                 <div class="cquiz-settings-row">
                     <label for="coupon_description" class="post-attributes-label"><?php esc_html_e( 'Coupon description', 'codevery-quiz' ); ?></label>
                     <?php
-                    $coupon_description = isset( $quiz_settings['coupon_description'] ) ? wp_kses_post( $quiz_settings['coupon_description'] ) : __( 'You can send it to your friend. The discount can be used only once in the specified period of time.', 'codevery-quiz' );
+                    $coupon_description = isset( $quiz_settings['coupon_description'] ) ? wp_kses_post( $quiz_settings['coupon_description'] ) : esc_html__( 'You can send it to your friend. The discount can be used only once in the specified period of time.', 'codevery-quiz' );
                     wp_editor( $coupon_description, 'coupon_description', array(
                         'wpautop'       => false,
                         'media_buttons' => false,
