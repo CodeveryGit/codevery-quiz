@@ -134,7 +134,7 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
                     $exp_date_format = $quiz_settings['exp_date_format'];
                     $expiration_date = isset( $quiz_settings['expiration_date'] ) ? $quiz_settings['expiration_date'] : '+2 weeks';
                     if ( $exp_date_format == 'ukraine_format' ) {
-                        $exp_date = cquiz_ua_date_format( strtotime( $expiration_date ) );
+                        $exp_date = codevery_quiz_ua_date_format( strtotime( $expiration_date ) );
                     } else {
                         $exp_date = date( $exp_date_format, strtotime( $expiration_date ) );
                     }

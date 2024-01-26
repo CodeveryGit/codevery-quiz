@@ -64,7 +64,7 @@ if ( $custom_logo_id ) {
             <div class="cquiz-certificate__expiration">
                 <?php
                 if (  'ukraine_format' == $quiz_settings['exp_date_format'] ) {
-                    $exp_date = cquiz_ua_date_format( strtotime( $quiz_settings['expiration_date'] ) );
+                    $exp_date = codevery_quiz_ua_date_format( strtotime( $quiz_settings['expiration_date'] ) );
                 } else {
                     $exp_date = date( $quiz_settings['exp_date_format'], strtotime( $quiz_settings['expiration_date'] ) );
                 }

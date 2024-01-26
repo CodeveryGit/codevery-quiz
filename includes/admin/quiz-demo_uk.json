@@ -13,7 +13,7 @@
     "coupon_background_color":"#15154c",
     "highlighted_color":"#c261e8",
     "title_quiz_winner":"Вітаємо!",
-    "text_quiz_winner":"<p>[quiz_certificate quiz_id=72]<\/p>",
+    "text_quiz_winner":"<p>[codevery_quiz_certificate quiz_id=72]<\/p>",
     "title_quiz_looser":"Пощастить наступного разу!",
     "text_quiz_looser":"<p style=\"text-align: center;\">Здається, вам потрібно більше уваги приділяти найкращим друзям людини.<\/p><p style=\"text-align: center;\"><img class=\"aligncenter\" loading=\"lazy\" src=\"https:\/\/media.giphy.com\/media\/3orif43L8j0FOZsqM8\/giphy.gif\" \/><\/p>",
     "hover_answer_color": "#cf76f2",

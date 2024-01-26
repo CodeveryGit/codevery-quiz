@@ -55,7 +55,7 @@ class Codevery_Quiz_Activator {
                     $pattern = '/[\[\]{}]/';
                     $val['option'] = htmlspecialchars( preg_replace( $pattern, '', $val['option'] ), ENT_QUOTES );
                     $val['description'] = htmlspecialchars( preg_replace( $pattern, '', $val['description'] ), ENT_QUOTES );
-                    $val['image_id'] = $val['image_id'] ? cquiz_upload_file_by_url( CODEVERY_QUIZ_PLUGIN_URI_ASSETS . 'images/' . $val['image_id'] ) : '';
+                    $val['image_id'] = $val['image_id'] ? codevery_quiz_upload_file_by_url( CODEVERY_QUIZ_PLUGIN_URI_ASSETS . 'images/' . $val['image_id'] ) : '';
                     return $val;
                 }, $question['question_options'] );
                 $question_options = wp_json_encode( $question_options, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
@@ -74,7 +74,7 @@ class Codevery_Quiz_Activator {
         );
         $demo_quiz_id = wp_insert_post( $args );
 
-        $quiz_image_id = cquiz_upload_file_by_url( CODEVERY_QUIZ_PLUGIN_URI_ASSETS . 'images/' . $quiz['image'] );
+        $quiz_image_id = codevery_quiz_upload_file_by_url( CODEVERY_QUIZ_PLUGIN_URI_ASSETS . 'images/' . $quiz['image'] );
         set_post_thumbnail( $demo_quiz_id, $quiz_image_id );
 
         update_post_meta( $demo_quiz_id, 'quiz_questions', wp_json_encode( $quiz_question_points, JSON_UNESCAPED_UNICODE ) );
@@ -84,9 +84,10 @@ class Codevery_Quiz_Activator {
         $default_email = ob_get_clean();
 
         // fix certificate shortcode id.
-        $pattern = '/\[quiz_certificate (.*?)\]/';
-        preg_match( $pattern, $quiz_settings['text_quiz_winner'], $matches );
-        $quiz_settings['text_quiz_winner'] = str_replace( $matches[1], 'quiz_id=' . $demo_quiz_id, $quiz_settings['text_quiz_winner'] );
+        $pattern = '/\[codevery_quiz_certificate (.*?)\]/';
+        if ( preg_match( $pattern, $quiz_settings['text_quiz_winner'], $matches ) ) {
+            $quiz_settings['text_quiz_winner'] = str_replace( $matches[1], 'quiz_id=' . $demo_quiz_id, $quiz_settings['text_quiz_winner'] );
+        }
         // replace image source.
         $quiz_settings = preg_replace( '/{quiz_image_src}/m', CODEVERY_QUIZ_PLUGIN_URI_ASSETS . 'images/', $quiz_settings );
 

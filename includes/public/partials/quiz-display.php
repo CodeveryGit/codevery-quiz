@@ -110,7 +110,7 @@ $quiz    = $this->get_quiz( $quiz_id );
                                     $text_quiz_winner = $quiz_settings['text_quiz_winner'];
                                 }
                                 // To allow form fields.
-                                echo wp_kses( $text_quiz_winner, cquiz_get_kses_array() );
+                                echo wp_kses( $text_quiz_winner, codevery_quiz_get_kses_array() );
                                 ?>
                                 <?php do_action( 'cquiz_result_page' ); ?>
                             </div>

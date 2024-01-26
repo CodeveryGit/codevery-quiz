@@ -12,15 +12,15 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
     require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 }
 
-if ( ! class_exists( 'Email_List_Table' ) ) {
+if ( ! class_exists( 'Codevery_Quiz_Email_List_Table' ) ) {
 
     /**
-     * Class Email_List_Table
+     * Class Codevery_Quiz_Email_List_Table
      */
-    class Email_List_Table extends WP_List_Table {
+    class Codevery_Quiz_Email_List_Table extends WP_List_Table {
 
         /**
-         * Email_List_Table constructor.
+         * Codevery_Quiz_Email_List_Table constructor.
          */
         public function __construct() {
             parent::__construct( array(

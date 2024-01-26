@@ -1,5 +1,5 @@
 <?php
-if ( ! function_exists( 'cquiz_ua_date_format' ) ) {
+if ( ! function_exists( 'codevery_quiz_ua_date_format' ) ) {
     /**
      * Ukraine date format
      *
@@ -7,7 +7,7 @@ if ( ! function_exists( 'cquiz_ua_date_format' ) ) {
      * @param string $year_text
      * @return string
      */
-    function cquiz_ua_date_format( $date, $year_text = 'року' ) {
+    function codevery_quiz_ua_date_format( $date, $year_text = 'року' ) {
         $months_list = array(
             '01' => 'січня',
             '02' => 'лютого',
@@ -36,14 +36,14 @@ if ( ! function_exists( 'cquiz_ua_date_format' ) ) {
     }
 }
 
-if ( ! function_exists( 'cquiz_get_custom_logo' ) ) {
+if ( ! function_exists( 'codevery_quiz_get_custom_logo' ) ) {
     /**
      * Get site logo
      *
      * @param array $attr
      * @return string
      */
-    function cquiz_get_custom_logo( $attr = array() ) {
+    function codevery_quiz_get_custom_logo( $attr = array() ) {
         $html = '';
         $switched_blog = false;
 
@@ -104,14 +104,14 @@ if ( ! function_exists( 'cquiz_get_custom_logo' ) ) {
     }
 }
 
-if ( ! function_exists( 'cquiz_upload_file_by_url' ) ) {
+if ( ! function_exists( 'codevery_quiz_upload_file_by_url' ) ) {
     /**
      * Upload media file by url
      *
      * @param $image_url
      * @return bool|int|WP_Error
      */
-    function cquiz_upload_file_by_url( $image_url ) {
+    function codevery_quiz_upload_file_by_url( $image_url ) {
         require_once ABSPATH . 'wp-admin/includes/file.php';
         $temp_file = download_url( $image_url );
         if ( is_wp_error( $temp_file ) ) {
@@ -157,13 +157,13 @@ if ( ! function_exists( 'cquiz_upload_file_by_url' ) ) {
     }
 }
 
-if ( ! function_exists( 'cquiz_get_kses_array' ) ) {
+if ( ! function_exists( 'codevery_quiz_get_kses_array' ) ) {
     /**
      * Array of allowed tags for wp_kses()
      *
      * @return array
      */
-    function cquiz_get_kses_array() {
+    function codevery_quiz_get_kses_array() {
         return array(
             'a' => array(
                 'class'  => array(),

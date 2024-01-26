@@ -42,10 +42,10 @@ if ( ! class_exists( 'Codevery_Quiz_Email_List' ) ) {
          */
         public function cquiz_email_list_admin_page() {
 
-            if ( ! class_exists( 'Email_List_Table' ) ) {
+            if ( ! class_exists( 'Codevery_Quiz_Email_List_Table' ) ) {
                 require_once CODEVERY_QUIZ_PLUGIN_DIR_ADMIN . 'class-email-list-table.php';
             }
-            $list_table = new Email_List_Table();
+            $list_table = new Codevery_Quiz_Email_List_Table();
             $list_table->prepare_items();
 
             ?>

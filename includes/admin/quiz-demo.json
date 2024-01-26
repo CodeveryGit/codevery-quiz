@@ -13,7 +13,7 @@
     "coupon_background_color":"#15154c",
     "highlighted_color":"#c261e8",
     "title_quiz_winner":"Congratulations!",
-    "text_quiz_winner":"<p>[quiz_certificate quiz_id=72]<\/p>",
+    "text_quiz_winner":"<p>[codevery_quiz_certificate quiz_id=72]<\/p>",
     "title_quiz_looser":"Better luck next time!",
     "text_quiz_looser":"<p style=\"text-align: center;\",>It seems that you need to pay more attention to mankind’s best friends.<\/p><p style=\"text-align: center;\"><img class=\"aligncenter\" loading=\"lazy\" src=\"https:\/\/media.giphy.com\/media\/3orif43L8j0FOZsqM8\/giphy.gif\" \/><\/p>",
     "hover_answer_color": "#cf76f2",

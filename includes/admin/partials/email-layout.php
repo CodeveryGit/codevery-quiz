@@ -2,7 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
 if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
-    $logo = cquiz_get_custom_logo( array( 'style' => 'max-width:320px;height:auto;margin:auto;' ) );
+    $logo = codevery_quiz_get_custom_logo( array( 'style' => 'max-width:320px;height:auto;margin:auto;' ) );
 } else {
     $logo = '<a href="' . esc_url( home_url( '/' ) ) . '" style="font-weight:bold;margin-bottom:30px;color:inherit;text-decoration:none;text-transform:uppercase;font-size: 2rem;">' . esc_html( get_bloginfo( 'name' ) ) . '</a>';
 }

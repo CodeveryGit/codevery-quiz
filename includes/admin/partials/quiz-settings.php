@@ -275,7 +275,7 @@
                 <?php endif; ?>
                 <div class="quiz-certificate-shortcode">
                     <p><?php esc_html_e( 'If you want to add a coupon to your quiz, copy this shortcode and paste it into the success description:', 'codevery-quiz' ); ?></p>
-                    <code id="quiz_certificate_shortcode">[quiz_certificate quiz_id=<?php echo esc_html( $post_object->ID ); ?>]</code><a href="#" id="copy_shortcode" class="copy_shortcode" title="Copy to Clipboard" data-copied_text_id="#quiz_certificate_shortcode" ><span class="dashicons dashicons-admin-page"></span></a>
+                    <code id="quiz_certificate_shortcode">[codevery_quiz_certificate quiz_id=<?php echo esc_html( $post_object->ID ); ?>]</code><a href="#" id="copy_shortcode" class="copy_shortcode" title="Copy to Clipboard" data-copied_text_id="#quiz_certificate_shortcode" ><span class="dashicons dashicons-admin-page"></span></a>
                 </div>
                 <div class="cquiz-settings-row">
                     <label for="expiration_date" class="post-attributes-label"><?php esc_html_e( 'Coupon amount, %', 'codevery-quiz' ); ?></label>
@@ -304,7 +304,7 @@
                     <label for="exp_date_format" class="post-attributes-label"><?php esc_html_e( 'Expire Date Format', 'codevery-quiz' ); ?></label>
                     <select name="exp_date_format" id="exp_date_format">
                         <?php if ( get_locale() === 'uk_UA' ) : ?>
-                            <option value="ukraine_format" <?php selected( $exp_date_format, 'ukraine_format' ); ?> ><?php echo esc_html( cquiz_ua_date_format( strtotime( date( 'Y-m-d', strtotime( $expiration_date ) ) ) ) ); ?></option>
+                            <option value="ukraine_format" <?php selected( $exp_date_format, 'ukraine_format' ); ?> ><?php echo esc_html( codevery_quiz_ua_date_format( strtotime( date( 'Y-m-d', strtotime( $expiration_date ) ) ) ) ); ?></option>
                         <?php endif; ?>
                         <option value="F j, Y" <?php selected( $exp_date_format, 'F j, Y' ); ?>><?php echo esc_html( date( 'F j, Y', strtotime( $expiration_date ) ) ); ?></option>
                         <option value="d.m.Y" <?php selected( $exp_date_format, 'd.m.Y' ); ?>><?php echo esc_html( date( 'd.m.Y', strtotime( $expiration_date ) ) ); ?></option>
@@ -353,7 +353,7 @@
                                         <input type="text" class="promocode-exp-text" name="promocode_exp_text" value="<?php echo esc_attr( $quiz_settings['promocode_exp_text'] ); ?>" /><br>
                                         <?php
                                         if ( $exp_date_format == 'ukraine_format' ) {
-                                            $exp_date = cquiz_ua_date_format( strtotime( $expiration_date ) );
+                                            $exp_date = codevery_quiz_ua_date_format( strtotime( $expiration_date ) );
                                         } else {
                                             $exp_date = date( $exp_date_format, strtotime( $expiration_date ) );
                                         }

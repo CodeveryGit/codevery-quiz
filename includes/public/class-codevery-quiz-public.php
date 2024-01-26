@@ -55,7 +55,7 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
              * Register shortcodes
              */
             add_shortcode( 'codevery_quiz', array( $this, 'quiz_shortcode' ) );
-            add_shortcode( 'quiz_certificate', array( $this, 'certificate_shortcode' ) );
+            add_shortcode( 'codevery_quiz_certificate', array( $this, 'certificate_shortcode' ) );
             /**
              * Ajax
              */
@@ -171,7 +171,7 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
 
             $atts  = shortcode_atts( array(
                 'quiz_id' => '',
-            ), $attr, 'quiz_certificate' );
+            ), $attr, 'codevery_quiz_certificate' );
 
             ob_start();
             require 'partials/certificate-display.php';
@@ -204,7 +204,7 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
                 $expiry_date = $coupon->get_date_expires( 'edit' ) ? $coupon->get_date_expires( 'edit' )->date( $exp_date_format ) : '';
             } else {
                 if ( $exp_date_format == 'ukraine_format' ) {
-                    $expiry_date = cquiz_ua_date_format( strtotime( $exp_date ) );
+                    $expiry_date = codevery_quiz_ua_date_format( strtotime( $exp_date ) );
                 } else {
                     $expiry_date = date( $exp_date_format, strtotime( $exp_date ) );
                 }
