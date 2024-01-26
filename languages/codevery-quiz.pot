@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Codevery Quiz\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 13:26+0000\n"
+"POT-Creation-Date: 2024-01-17 12:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,106 +13,112 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.4; wp-6.2.2\n"
+"X-Loco-Version: 2.6.6; wp-6.4.2\n"
 "X-Domain: codevery-quiz"
 
 #. 1: date, 2: time
-#: includes/admin/class-email-list-table.php:224
+#: includes/admin/class-email-list-table.php:222
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:255
+#: includes/admin/codevery-quiz-admin.php:254
 msgid "&nbsp;"
 msgstr ""
 
-#: includes/public/partials/certificate-display.php:31
+#: includes/public/partials/certificate-display.php:32
 msgid "(this warning can only be seen by the administrator)"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:46
-#: includes/admin/partials/quiz-settings.php:139
+#: includes/admin/partials/quiz-settings.php:48
+#: includes/admin/partials/quiz-settings.php:143
 msgid "+ Add New Question"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:282
+#: includes/admin/partials/quiz-settings.php:288
 msgid "1 week"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:283
+#: includes/admin/partials/quiz-settings.php:289
 msgid "2 weeks"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:284
+#: includes/admin/partials/quiz-settings.php:290
 msgid "3 weeks"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:285
+#: includes/admin/partials/quiz-settings.php:291
 msgid "4 weeks"
 msgstr ""
 
-#: includes/public/class-codevery-quiz-public.php:228
+#. %s: Site name.
+#: includes/public/class-codevery-quiz-public.php:229
 #, php-format
 msgid "[%s]: Certificate"
 msgstr ""
 
-#: includes/admin/partials/modal-add-new-question.php:106
-#: includes/admin/partials/question-settings.php:129
+#: includes/admin/partials/modal-add-new-question.php:107
+#: includes/admin/partials/question-settings.php:130
 msgid "Add Answer"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:46
-#: includes/admin/partials/quiz-settings.php:139
+#: includes/cquiz-post-types.php:78 includes/cquiz-post-types.php:79
+#: includes/admin/partials/quiz-settings.php:48
+#: includes/admin/partials/quiz-settings.php:143
 msgid "Add New Question"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:162
+#: includes/cquiz-post-types.php:45 includes/cquiz-post-types.php:46
+msgid "Add New Quiz"
+msgstr ""
+
+#: includes/admin/partials/quiz-settings.php:167
 msgid "Add Question"
 msgstr ""
 
-#: includes/admin/partials/modal-add-new-question.php:39
-#: includes/admin/partials/modal-add-new-question.php:47
-#: includes/admin/partials/modal-add-new-question.php:74
-#: includes/admin/partials/modal-add-new-question.php:82
-#: includes/admin/partials/question-settings.php:25
-#: includes/admin/partials/question-settings.php:33
-#: includes/admin/partials/question-settings.php:61
-#: includes/admin/partials/question-settings.php:70
-#: includes/admin/partials/question-settings.php:97
-#: includes/admin/partials/question-settings.php:105
+#: includes/admin/partials/modal-add-new-question.php:40
+#: includes/admin/partials/modal-add-new-question.php:48
+#: includes/admin/partials/modal-add-new-question.php:75
+#: includes/admin/partials/modal-add-new-question.php:83
+#: includes/admin/partials/question-settings.php:26
+#: includes/admin/partials/question-settings.php:34
+#: includes/admin/partials/question-settings.php:62
+#: includes/admin/partials/question-settings.php:71
+#: includes/admin/partials/question-settings.php:98
+#: includes/admin/partials/question-settings.php:106
 msgid "Answer"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:257
-#: includes/admin/partials/modal-add-new-question.php:13
+#: includes/admin/codevery-quiz-admin.php:256
+#: includes/admin/partials/modal-add-new-question.php:14
 msgid "Answers"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:115
+#: includes/admin/codevery-quiz-admin.php:113
 msgid "Are you sure you want to delete this email?"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:114
+#: includes/admin/codevery-quiz-admin.php:112
 msgid "Are you sure you want to remove this question from the list?"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:290
+#: includes/admin/partials/quiz-settings.php:296
 msgid "Background Color"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:279
+#: includes/admin/codevery-quiz-admin.php:278
 msgid "Better luck next time!"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:281
+#: includes/admin/codevery-quiz-admin.php:280
 msgid "Certificate"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:27
-#: includes/admin/partials/quiz-settings.php:37
-#: includes/admin/partials/quiz-settings.php:89
-#: includes/admin/partials/quiz-settings.php:120
-#: includes/admin/partials/quiz-settings.php:130
+#: includes/admin/partials/quiz-settings.php:28
+#: includes/admin/partials/quiz-settings.php:38
+#: includes/admin/partials/quiz-settings.php:92
+#: includes/admin/partials/quiz-settings.php:123
+#: includes/admin/partials/quiz-settings.php:133
 msgid "Choose Question"
 msgstr ""
 
@@ -124,47 +130,47 @@ msgstr ""
 msgid "Codevery Quiz"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:229
+#: includes/admin/partials/quiz-settings.php:235
 msgid "Colors"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:277
+#: includes/admin/codevery-quiz-admin.php:276
 msgid "Congratulations!"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:318
+#: includes/admin/codevery-quiz-admin.php:317
 msgid "Copy this shortcode and paste it into your page or post:"
 msgstr ""
 
-#: includes/public/partials/quiz-display.php:80
+#: includes/public/partials/quiz-display.php:83
 msgid "Correct"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:238
+#: includes/admin/partials/quiz-settings.php:244
 msgid "Correct Answer"
 msgstr ""
 
-#: includes/admin/partials/modal-add-new-question.php:59
-#: includes/admin/partials/modal-add-new-question.php:94
-#: includes/admin/partials/question-settings.php:45
-#: includes/admin/partials/question-settings.php:82
-#: includes/admin/partials/question-settings.php:117
+#: includes/admin/partials/modal-add-new-question.php:60
+#: includes/admin/partials/modal-add-new-question.php:95
+#: includes/admin/partials/question-settings.php:46
+#: includes/admin/partials/question-settings.php:83
+#: includes/admin/partials/question-settings.php:118
 msgid "Correct answer"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:13
+#: includes/admin/partials/quiz-settings.php:14
 msgid "Coupon"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:276
+#: includes/admin/partials/quiz-settings.php:282
 msgid "Coupon amount, %"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:366
+#: includes/admin/partials/quiz-settings.php:371
 msgid "Coupon description"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:280
+#: includes/admin/partials/quiz-settings.php:286
 msgid "Coupon expiration date"
 msgstr ""
 
@@ -174,38 +180,37 @@ msgid ""
 "scores. Users can earn discount coupons based on their quiz results."
 msgstr ""
 
-#: includes/admin/class-quiz-table.php:37
-#: includes/admin/class-quiz-table.php:56
-msgid "Date"
-msgstr ""
-
 #: includes/admin/class-email-list-table.php:70
 msgid "Delete permanently"
 msgstr ""
 
-#: includes/admin/partials/modal-add-new-question.php:53
-#: includes/admin/partials/modal-add-new-question.php:88
-#: includes/admin/partials/question-settings.php:37
-#: includes/admin/partials/question-settings.php:39
-#: includes/admin/partials/question-settings.php:76
-#: includes/admin/partials/question-settings.php:111
+#: includes/admin/partials/modal-add-new-question.php:54
+#: includes/admin/partials/modal-add-new-question.php:89
+#: includes/admin/partials/question-settings.php:38
+#: includes/admin/partials/question-settings.php:40
+#: includes/admin/partials/question-settings.php:77
+#: includes/admin/partials/question-settings.php:112
 msgid "Describe why this option is correct or incorrect"
 msgstr ""
 
-#: includes/admin/partials/modal-add-new-question.php:9
-#: includes/admin/partials/modal-add-new-question.php:51
-#: includes/admin/partials/modal-add-new-question.php:86
-#: includes/admin/partials/question-settings.php:74
-#: includes/admin/partials/question-settings.php:109
+#: includes/admin/partials/modal-add-new-question.php:10
+#: includes/admin/partials/modal-add-new-question.php:52
+#: includes/admin/partials/modal-add-new-question.php:87
+#: includes/admin/partials/question-settings.php:75
+#: includes/admin/partials/question-settings.php:110
 msgid "Description"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:384
+#: includes/admin/partials/quiz-settings.php:389
 msgid "Display Email Form"
 msgstr ""
 
-#: includes/admin/partials/edit-cquiz_email-form.php:17
-msgid "Edit Email"
+#: includes/cquiz-post-types.php:81
+msgid "Edit Question"
+msgstr ""
+
+#: includes/cquiz-post-types.php:48
+msgid "Edit Quiz"
 msgstr ""
 
 #: includes/admin/class-email-list-table.php:27
@@ -217,7 +222,7 @@ msgstr ""
 msgid "Email deleted."
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:406
+#: includes/admin/partials/quiz-settings.php:411
 msgid "Email Layout"
 msgstr ""
 
@@ -226,7 +231,7 @@ msgstr ""
 msgid "Email List"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:380
+#: includes/admin/partials/quiz-settings.php:385
 msgid "Email Settings"
 msgstr ""
 
@@ -238,19 +243,15 @@ msgstr ""
 msgid "Emails deleted."
 msgstr ""
 
-#: includes/public/partials/certificate-display.php:85
+#: includes/public/partials/certificate-display.php:86
 msgid "Enter Email"
 msgstr ""
 
-#: includes/admin/partials/edit-cquiz_email-form.php:33
-msgid "Enter email here"
-msgstr ""
-
-#: includes/admin/class-codevery-quiz-email-list.php:122
+#: includes/admin/class-codevery-quiz-email-list.php:155
 msgid "Error in deleting."
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:299
+#: includes/admin/partials/quiz-settings.php:305
 msgid "Expire Date Format"
 msgstr ""
 
@@ -258,58 +259,64 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
-#: includes/admin/class-codevery-quiz-email-list.php:85
+#: includes/admin/class-codevery-quiz-email-list.php:86
 msgid "Export your email list as a CSV file quickly and easily."
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:216
+#: includes/admin/partials/quiz-settings.php:221
 msgid "Fail description"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:211
+#: includes/admin/partials/quiz-settings.php:216
 msgid "Fail title"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:391
+#: includes/admin/partials/quiz-settings.php:396
 msgid "Form description"
 msgstr ""
 
 #. time format, see https://www.php.net/date
-#: includes/admin/class-email-list-table.php:228
+#: includes/admin/class-email-list-table.php:226
 msgid "g:i a"
 msgstr ""
 
-#: includes/admin/partials/email-layout.php:20
+#: includes/admin/partials/email-layout.php:22
 msgid "Go to the website"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:294
+#: includes/admin/partials/quiz-settings.php:176
+msgid "here"
+msgstr ""
+
+#: includes/admin/partials/quiz-settings.php:300
 msgid "Highlighted Color"
 msgstr ""
 
 #. URI of the plugin
-#. Author URI of the plugin
 msgid "https://codevery.com/"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:272
+#. Author URI of the plugin
+msgid "https://profiles.wordpress.org/codevery/"
+msgstr ""
+
+#: includes/admin/partials/quiz-settings.php:278
 msgid ""
 "If you want to add a coupon to your quiz, copy this shortcode and paste it "
 "into the success description:"
 msgstr ""
 
-#: includes/cquiz-post-types.php:125 includes/admin/class-quiz-table.php:33
-#: includes/admin/class-quiz-table.php:52
-#: includes/admin/partials/modal-add-new-question.php:27
-#: includes/admin/partials/question-settings.php:13
+#: includes/cquiz-post-types.php:135
+#: includes/admin/partials/modal-add-new-question.php:28
+#: includes/admin/partials/question-settings.php:14
 msgid "Image"
 msgstr ""
 
-#: includes/public/partials/quiz-display.php:80
+#: includes/public/partials/quiz-display.php:83
 msgid "Incorrect"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:243
+#: includes/admin/partials/quiz-settings.php:249
 msgid "Incorrect Answer"
 msgstr ""
 
@@ -317,33 +324,41 @@ msgstr ""
 msgid "Last Passed"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:387
+#: includes/cquiz-post-types.php:80
+msgid "New Question"
+msgstr ""
+
+#: includes/admin/codevery-quiz-admin.php:394
 msgid "New question has been saved"
 msgstr ""
 
-#: includes/public/partials/quiz-display.php:122
+#: includes/cquiz-post-types.php:47
+msgid "New Quiz"
+msgstr ""
+
+#: includes/public/partials/quiz-display.php:128
 msgid "Next"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:233
+#: includes/admin/partials/quiz-settings.php:239
 msgid "Option Button (on hover)"
 msgstr ""
 
-#: includes/public/class-codevery-quiz-public.php:96
+#: includes/public/class-codevery-quiz-public.php:97
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: includes/public/class-codevery-quiz-public.php:95
+#: includes/public/class-codevery-quiz-public.php:96
 msgid "Please enter an email address."
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:51
-#: includes/admin/partials/quiz-settings.php:98
-#: includes/admin/partials/quiz-settings.php:144
+#: includes/admin/partials/quiz-settings.php:54
+#: includes/admin/partials/quiz-settings.php:101
+#: includes/admin/partials/quiz-settings.php:149
 msgid "Points"
 msgstr ""
 
-#: includes/cquiz-post-types.php:68
+#: includes/cquiz-post-types.php:73
 msgctxt "Post Type General Name"
 msgid "Questions"
 msgstr ""
@@ -353,7 +368,7 @@ msgctxt "Post Type General Name"
 msgid "Quiz"
 msgstr ""
 
-#: includes/cquiz-post-types.php:69
+#: includes/cquiz-post-types.php:74
 msgctxt "Post Type Singular Name"
 msgid "Question"
 msgstr ""
@@ -363,40 +378,39 @@ msgctxt "Post Type Singular Name"
 msgid "Quiz"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:426
+#: includes/admin/partials/quiz-settings.php:431
 msgid "Preview"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:282
+#: includes/admin/codevery-quiz-admin.php:281
 msgid "Promo code"
 msgstr ""
 
-#: includes/cquiz-post-types.php:66
-#: includes/admin/partials/quiz-settings.php:35
-#: includes/admin/partials/quiz-settings.php:87
-#: includes/admin/partials/quiz-settings.php:128
+#: includes/cquiz-post-types.php:71
+#: includes/admin/partials/quiz-settings.php:36
+#: includes/admin/partials/quiz-settings.php:90
+#: includes/admin/partials/quiz-settings.php:131
 msgid "Question"
 msgstr ""
 
-#: includes/cquiz-post-types.php:143
+#: includes/cquiz-post-types.php:153
 msgid "Question Type"
 msgstr ""
 
-#: includes/cquiz-post-types.php:70 includes/cquiz-post-types.php:71
-#: includes/cquiz-post-types.php:72 includes/admin/partials/quiz-settings.php:5
+#: includes/cquiz-post-types.php:75 includes/cquiz-post-types.php:76
+#: includes/cquiz-post-types.php:77 includes/admin/partials/quiz-settings.php:6
 msgid "Questions"
 msgstr ""
 
 #: includes/cquiz-post-types.php:38 includes/cquiz-post-types.php:43
-#: includes/admin/class-quiz-table.php:24
 msgid "Quiz"
 msgstr ""
 
-#: includes/cquiz-post-types.php:96
+#: includes/cquiz-post-types.php:106
 msgid "Quiz Contact"
 msgstr ""
 
-#: includes/cquiz-post-types.php:95 includes/cquiz-post-types.php:98
+#: includes/cquiz-post-types.php:105 includes/cquiz-post-types.php:108
 msgid "Quiz Contacts"
 msgstr ""
 
@@ -405,32 +419,31 @@ msgid "Quiz Emails"
 msgstr ""
 
 #: includes/cquiz-post-types.php:42 includes/cquiz-post-types.php:44
-#: includes/admin/class-quiz-table.php:25
 #: includes/admin/codevery-quiz-admin.php:69
 #: includes/admin/codevery-quiz-admin.php:70
 msgid "Quizzes"
 msgstr ""
 
-#: includes/admin/partials/modal-add-new-question.php:64
-#: includes/admin/partials/modal-add-new-question.php:99
-#: includes/admin/partials/question-settings.php:50
-#: includes/admin/partials/question-settings.php:87
-#: includes/admin/partials/question-settings.php:122
-#: includes/admin/partials/quiz-settings.php:57
-#: includes/admin/partials/quiz-settings.php:104
-#: includes/admin/partials/quiz-settings.php:150
+#: includes/admin/partials/modal-add-new-question.php:65
+#: includes/admin/partials/modal-add-new-question.php:100
+#: includes/admin/partials/question-settings.php:51
+#: includes/admin/partials/question-settings.php:88
+#: includes/admin/partials/question-settings.php:123
+#: includes/admin/partials/quiz-settings.php:60
+#: includes/admin/partials/quiz-settings.php:107
+#: includes/admin/partials/quiz-settings.php:155
 msgid "Remove"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:283
+#: includes/admin/codevery-quiz-admin.php:282
 msgid "Sale"
 msgstr ""
 
-#: includes/admin/partials/modal-add-new-question.php:112
+#: includes/admin/partials/modal-add-new-question.php:113
 msgid "Save"
 msgstr ""
 
-#: includes/admin/class-codevery-quiz-email-list.php:90
+#: includes/admin/class-codevery-quiz-email-list.php:91
 msgid "Search emails"
 msgstr ""
 
@@ -439,16 +452,15 @@ msgstr ""
 msgid "Search results for &#8220;%s&#8221;"
 msgstr ""
 
-#: includes/public/partials/certificate-display.php:87
+#: includes/public/partials/certificate-display.php:88
 msgid "Send"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:9
+#: includes/admin/partials/quiz-settings.php:10
 msgid "Settings"
 msgstr ""
 
-#: includes/cquiz-post-types.php:127 includes/admin/class-quiz-table.php:35
-#: includes/admin/class-quiz-table.php:54
+#: includes/cquiz-post-types.php:137
 msgid "Shortcode"
 msgstr ""
 
@@ -456,112 +468,125 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:271
-#: includes/admin/partials/quiz-settings.php:188
+#: includes/admin/codevery-quiz-admin.php:270
+#: includes/admin/partials/quiz-settings.php:192
 msgid "Start"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:187
+#: includes/admin/partials/quiz-settings.php:191
 msgid "Start button text"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:197
+#: includes/admin/partials/quiz-settings.php:201
 msgid "Success description"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:192
+#: includes/admin/partials/quiz-settings.php:196
 msgid "Success title"
 msgstr ""
 
-#: includes/admin/partials/modal-add-new-question.php:22
-#: includes/admin/partials/question-settings.php:8
+#: includes/admin/partials/modal-add-new-question.php:23
+#: includes/admin/partials/question-settings.php:9
 msgid "Text"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:268
-#: includes/public/partials/certificate-display.php:30
+#. %s: Plugin name.
+#: includes/admin/partials/quiz-settings.php:274
+#: includes/public/partials/certificate-display.php:31
 #, php-format
 msgid "The %s plugin must be active for the coupon functionality."
 msgstr ""
 
-#: includes/public/class-codevery-quiz-public.php:276
+#: includes/public/class-codevery-quiz-public.php:272
 msgid "The certificate has been successfully sent!"
 msgstr ""
 
-#: includes/public/class-codevery-quiz-public.php:273
+#: includes/public/class-codevery-quiz-public.php:269
 msgid "There was an error trying to send your message. Please try again later."
 msgstr ""
 
-#: includes/admin/class-quiz-table.php:34
-#: includes/admin/class-quiz-table.php:53
-#: includes/admin/partials/modal-add-new-question.php:5
+#: includes/admin/partials/modal-add-new-question.php:6
 msgid "Title"
 msgstr ""
 
-#: includes/admin/partials/modal-add-new-question.php:18
-#: includes/admin/partials/question-settings.php:4
+#: includes/admin/partials/modal-add-new-question.php:19
+#: includes/admin/partials/question-settings.php:5
 msgid "Type"
 msgstr ""
 
-#: includes/admin/partials/modal-add-new-question.php:43
-#: includes/admin/partials/modal-add-new-question.php:78
-#: includes/admin/partials/question-settings.php:29
-#: includes/admin/partials/question-settings.php:66
-#: includes/admin/partials/question-settings.php:101
+#: includes/admin/partials/modal-add-new-question.php:44
+#: includes/admin/partials/modal-add-new-question.php:79
+#: includes/admin/partials/question-settings.php:30
+#: includes/admin/partials/question-settings.php:67
+#: includes/admin/partials/question-settings.php:102
 msgid "Upload Image"
 msgstr ""
 
-#: includes/cquiz-post-types.php:128 includes/admin/class-quiz-table.php:36
-#: includes/admin/class-quiz-table.php:55
+#: includes/cquiz-post-types.php:138
 msgid "Usage"
 msgstr ""
 
-#: includes/admin/partials/email-layout.php:15
+#: includes/admin/partials/email-layout.php:17
 msgid "Valid until"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:284
+#: includes/admin/codevery-quiz-admin.php:283
 msgid "Valid until:"
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:286
-#: includes/admin/partials/quiz-settings.php:393
+#: includes/cquiz-post-types.php:82
+msgid "View Question"
+msgstr ""
+
+#: includes/cquiz-post-types.php:49
+msgid "View Quiz"
+msgstr ""
+
+#: includes/admin/codevery-quiz-admin.php:285
+#: includes/admin/partials/quiz-settings.php:398
 msgid "We can send you this coupon by email"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:182
+#: includes/admin/partials/quiz-settings.php:186
 msgid "Winner points"
 msgstr ""
 
 #. date format, see https://www.php.net/date
-#: includes/admin/class-email-list-table.php:226
+#: includes/admin/class-email-list-table.php:224
 msgid "Y/m/d"
 msgstr ""
 
-#: includes/admin/class-codevery-quiz-email-list.php:118
+#: includes/admin/class-codevery-quiz-email-list.php:151
 msgid "You are not allowed to delete this item."
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:361
+#: includes/admin/partials/quiz-settings.php:321
 msgid "You can change the titles directly on the certificate."
 msgstr ""
 
-#: includes/admin/codevery-quiz-admin.php:285
-#: includes/admin/partials/email-layout.php:18
-#: includes/admin/partials/quiz-settings.php:368
+#: includes/admin/codevery-quiz-admin.php:284
+#: includes/admin/partials/email-layout.php:20
+#: includes/admin/partials/quiz-settings.php:373
 msgid ""
 "You can send it to your friend. The discount can be used only once in the "
 "specified period of time."
 msgstr ""
 
-#: includes/public/class-codevery-quiz-public.php:94
+#: includes/public/class-codevery-quiz-public.php:95
 msgid "You got <b>{score}</b> points"
 msgstr ""
 
-#: includes/admin/partials/quiz-settings.php:427
+#: includes/admin/partials/quiz-settings.php:432
 msgid "You have to save your changes first to preview the current version."
 msgstr ""
 
-#: includes/admin/partials/email-layout.php:12
+#. 1: URL to WordPress Updates screen.
+#: includes/admin/partials/quiz-settings.php:175
+#, php-format
+msgid ""
+"You need to create questions first. Click %1$s to create a new question."
+msgstr ""
+
+#: includes/admin/partials/email-layout.php:14
 msgid "Your Discount"
 msgstr ""
