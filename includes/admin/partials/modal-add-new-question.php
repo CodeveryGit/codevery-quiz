@@ -1,5 +1,14 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly. ?>
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
+if ( ! current_user_can( 'edit_posts' ) ) {
+    wp_die( esc_html__( 'Sorry, you are not allowed to edit this item.' ) );
+}
+
+if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_REQUEST['nonce'] ), 'cquiz_modal_window_nonce' ) ) {
+    wp_die( 'Invalid nonce' );
+    exit;
+}
+?>
 <div id="quiz_settings" class="quiz-add-new-question">
     <form name="cquiz_question" action="" method="post" id="cquiz_question">
         <?php wp_nonce_field( 'cquiz_new_question', 'cquiz_new_question_nonce' ); ?>

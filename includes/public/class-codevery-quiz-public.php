@@ -151,7 +151,7 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
             }
             <?php
             $styles = ob_get_clean();
-            wp_register_style( $this->plugin_name . '-dynamic', false, $this->version );
+            wp_register_style( $this->plugin_name . '-dynamic', false, '', $this->version );
             wp_enqueue_style( $this->plugin_name . '-dynamic' );
             wp_add_inline_style( $this->plugin_name . '-dynamic', $styles );
             ob_start();

@@ -102,7 +102,7 @@ if ( ! class_exists( 'Codevery_Quiz_Email_List_Table' ) ) {
             }
 
             if ( ! empty( $_REQUEST['order'] )
-                && 'asc' == strtolower( $_REQUEST['order'] ) ) {
+                && 'asc' == strtolower( sanitize_text_field( wp_unslash( $_REQUEST['order'] ) ) ) ) {
                 $args['order'] = 'ASC';
             }
 

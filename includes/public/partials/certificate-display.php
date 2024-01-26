@@ -28,7 +28,7 @@ if ( $custom_logo_id ) {
 
 <?php if ( current_user_can( 'manage_options' ) && ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) : ?>
     <div class="cquiz-error-notification" style="padding:12px 12px">
-        <?php echo sprintf( esc_attr__( 'The %s plugin must be active for the coupon functionality.', 'codevery-quiz' ), '<b>' . esc_html__( 'WooCommerce' ) . '</b>' ); ?><br />
+        <?php echo sprintf( esc_html__( 'The %s plugin must be active for the coupon functionality.', 'codevery-quiz' ), '<b>' . esc_html__( 'WooCommerce' ) . '</b>' ); ?><br />
         <span><?php esc_html_e( '(this warning can only be seen by the administrator)', 'codevery-quiz' ); ?></span>
     </div>
 <?php endif; ?>

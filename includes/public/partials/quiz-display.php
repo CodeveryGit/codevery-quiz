@@ -59,7 +59,7 @@ $quiz    = $this->get_quiz( $quiz_id );
                                         <?php if ( $question['option'] || $question['image_id'] ) :
                                             $data_rule = (int) isset( $question['answer'] );
                                             $i = str_replace( 'option_', '', $option_index );
-                                            $option_content = ( 'image' == $question_type ) ? '<span class="cquiz__form-image-label"  style="background-image: url(' . wp_get_attachment_image_src( $question['image_id'], 'full' )[0] . ')"></span>' : esc_attr( $question['option'] );
+                                            $option_content = ( 'image' == $question_type && $question['image_id'] ) ? '<span class="cquiz__form-image-label"  style="background-image: url(' . wp_get_attachment_image_src( $question['image_id'], 'full' )[0] . ')"></span>' : esc_attr( $question['option'] );
                                             ?>
                                             <div class="cquiz__<?php echo esc_attr( $question_type ); ?>-input cquiz__card">
                                                 <div class="cquiz__card-block">

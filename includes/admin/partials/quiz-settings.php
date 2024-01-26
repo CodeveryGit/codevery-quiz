@@ -45,7 +45,8 @@
                                                 </div>
                                                 <div class="new-question">
                                                     <?php
-                                                    $url = add_query_arg( array( 'action' => 'cquiz_modal_window' ), admin_url( 'admin.php' ) );
+                                                    $modal_nonce = wp_create_nonce( 'cquiz_modal_window_nonce' );
+                                                    $url = add_query_arg( array( 'action' => 'cquiz_modal_window', 'nonce' => $modal_nonce ), admin_url( 'admin.php' ) );
                                                     echo '<a href="' . esc_attr( $url ) . '" class="cquiz-modal" title="' . esc_html__( 'Add New Question', 'codevery-quiz' ) . '">' . esc_html__( '+ Add New Question', 'codevery-quiz' ) . '</a>';
                                                     ?>
                                                 </div>
@@ -140,7 +141,8 @@
                                                     </div>
                                                     <div class="new-question">
                                                         <?php
-                                                        $url = add_query_arg( array( 'action' => 'cquiz_modal_window' ), admin_url( 'admin.php' ) );
+                                                        $modal_nonce = wp_create_nonce( 'cquiz_modal_window_nonce' );
+                                                        $url = add_query_arg( array( 'action' => 'cquiz_modal_window', 'nonce' => $modal_nonce ), admin_url( 'admin.php' ) );
                                                         echo '<a href="' . esc_attr( $url ) . '" class="cquiz-modal" title="' . esc_html__( 'Add New Question', 'codevery-quiz' ) . '">' . esc_html__( '+ Add New Question', 'codevery-quiz' ) . '</a>';
                                                         ?>
                                                     </div>
@@ -203,6 +205,7 @@
                     <?php
                     $text_quiz_winner = isset( $quiz_settings['text_quiz_winner'] ) ? wp_kses_post( $quiz_settings['text_quiz_winner'] ) : '';
                     wp_editor( $text_quiz_winner, 'text_quiz_winner', array(
+                        'wpautop'       => false,
                         'media_buttons' => false,
                         'textarea_name' => 'text_quiz_winner',
                         'editor_height' => 230,
@@ -222,6 +225,7 @@
                     <?php
                     $text_quiz_looser = isset( $quiz_settings['text_quiz_looser'] ) ? wp_kses_post( $quiz_settings['text_quiz_looser'] ) : '';
                     wp_editor( $text_quiz_looser, 'text_quiz_looser', array(
+                        'wpautop'       => false,
                         'media_buttons' => false,
                         'textarea_name' => 'text_quiz_looser',
                         'editor_height' => 230,

@@ -137,85 +137,87 @@
         }
 
         const cqSendCouponForm = document.querySelector( '.cquiz-certificate__send-user-coupon' );
-        const cqEmail = cqSendCouponForm.querySelector( 'input[name="email"]' );
-        const cqEmailError = cqSendCouponForm.querySelector( '.error' );
+        if ( cqSendCouponForm ) {
+            const cqEmail = cqSendCouponForm.querySelector('input[name="email"]');
+            const cqEmailError = cqSendCouponForm.querySelector('.error');
 
-        cqEmail.addEventListener( 'input', () => {
-            cqEmailError.textContent = '';
-            cqEmail.classList.remove( 'invalid' );
-            removeIfExists( '.cquiz-message-slideup' );
-        });
-
-        function addErrorMsgToSendCouponForm( form, errorMessage ) {
-            let message = document.createElement( 'div' );
-            message.classList.add( 'coupon-error-msg', 'cquiz-message-slideup', 'closed' );
-            message.textContent = errorMessage;
-            form.after( message );
-            message.classList.remove( 'closed' );
-            setTimeout( function() {
-                message.classList.add( 'closed' );
-            }, 5000 );
-            console.error( errorMessage );
-        }
-
-        document.querySelector( '.cquiz-certificate__send-user-coupon button' ).addEventListener( 'click', ( event ) => {
-            event.preventDefault();
-            removeIfExists( '.cquiz-message-slideup' );
-            if (cqEmail.validity.valueMissing) {
-                cqEmailError.textContent = quizParams.emptyEmailMsg ? quizParams.emptyEmailMsg : 'Please enter an email address';
-                cqEmail.classList.add( 'invalid' );
-                return false;
-            } else if ( cqEmail.validity.typeMismatch || ! isEmail( cqEmail.value ) ) {
-                cqEmailError.textContent = quizParams.invalidEmailMsg ? quizParams.invalidEmailMsg : 'Please enter a valid email address.';
-                cqEmail.classList.add( 'invalid' );
-                return false;
-            } else {
+            cqEmail.addEventListener('input', () => {
                 cqEmailError.textContent = '';
-                cqEmail.classList.remove( 'invalid' );
+                cqEmail.classList.remove('invalid');
+                removeIfExists('.cquiz-message-slideup');
+            });
+
+            function addErrorMsgToSendCouponForm(form, errorMessage) {
+                let message = document.createElement('div');
+                message.classList.add('coupon-error-msg', 'cquiz-message-slideup', 'closed');
+                message.textContent = errorMessage;
+                form.after(message);
+                message.classList.remove('closed');
+                setTimeout(function () {
+                    message.classList.add('closed');
+                }, 5000);
+                console.error(errorMessage);
             }
 
-            const couponCode = document.querySelector( '.coupon-code' ).textContent;
-            const cquizSendCouponNonce = cqSendCouponForm.querySelector( 'input[name="cquiz_send_coupon_nonce"]' ).value;
-            const wpHttpReferer = cqSendCouponForm.querySelector( 'input[name="_wp_http_referer"]' ).value;
-            const request = new XMLHttpRequest();
-            const data = `action=cquiz_send_coupon_to_user&coupon=${couponCode}&email=${encodeURIComponent(cqEmail.value)}&quiz_id=${quizId}&_wp_http_referer=${wpHttpReferer}&cquiz_send_coupon_nonce=${cquizSendCouponNonce}`;
-            const requestUrl = quizParams.ajaxUrl;
-            request.open( 'POST', requestUrl, true );
-            request.setRequestHeader( "Content-type", "application/x-www-form-urlencoded; charset=UTF-8" );
-            request.onload = function() {
-                if ( this.status >= 200 && this.status < 400 ) {
-                    const response = JSON.parse( request.response );
-                    if ( response.status === 'success' ) {
-                        cqEmail.value = '';
-                        let message = document.createElement( 'div' );
-                        message.classList.add( 'coupon-success-msg', 'cquiz-message-slideup', 'closed' );
-                        message.textContent = response.message;
-                        cqSendCouponForm.after( message );
-                        message.classList.remove( 'closed' );
-                        setTimeout( function() {
-                            message.classList.add( 'closed' );
-                        }, 5000 );
-                    } else {
-                        cqEmail.value = '';
-                        addErrorMsgToSendCouponForm( cqSendCouponForm, response.message );
-                    }
+            document.querySelector('.cquiz-certificate__send-user-coupon button').addEventListener('click', (event) => {
+                event.preventDefault();
+                removeIfExists('.cquiz-message-slideup');
+                if (cqEmail.validity.valueMissing) {
+                    cqEmailError.textContent = quizParams.emptyEmailMsg ? quizParams.emptyEmailMsg : 'Please enter an email address';
+                    cqEmail.classList.add('invalid');
+                    return false;
+                } else if (cqEmail.validity.typeMismatch || !isEmail(cqEmail.value)) {
+                    cqEmailError.textContent = quizParams.invalidEmailMsg ? quizParams.invalidEmailMsg : 'Please enter a valid email address.';
+                    cqEmail.classList.add('invalid');
+                    return false;
                 } else {
-                    addErrorMsgToSendCouponForm( cqSendCouponForm, 'Request failed' );
+                    cqEmailError.textContent = '';
+                    cqEmail.classList.remove('invalid');
                 }
-                cqSendCouponForm.classList.remove( 'cquiz-loading' );
-            };
-            request.onerror = function() {
-                cqSendCouponForm.classList.remove( 'cquiz-loading' );
-                console.error( 'Request failed' );
-            };
-            cqSendCouponForm.classList.add( 'cquiz-loading' );
-            request.send( data );
 
-        });
+                const couponCode = document.querySelector('.coupon-code').textContent;
+                const cquizSendCouponNonce = cqSendCouponForm.querySelector('input[name="cquiz_send_coupon_nonce"]').value;
+                const wpHttpReferer = cqSendCouponForm.querySelector('input[name="_wp_http_referer"]').value;
+                const request = new XMLHttpRequest();
+                const data = `action=cquiz_send_coupon_to_user&coupon=${couponCode}&email=${encodeURIComponent(cqEmail.value)}&quiz_id=${quizId}&_wp_http_referer=${wpHttpReferer}&cquiz_send_coupon_nonce=${cquizSendCouponNonce}`;
+                const requestUrl = quizParams.ajaxUrl;
+                request.open('POST', requestUrl, true);
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+                request.onload = function () {
+                    if (this.status >= 200 && this.status < 400) {
+                        const response = JSON.parse(request.response);
+                        if (response.status === 'success') {
+                            cqEmail.value = '';
+                            let message = document.createElement('div');
+                            message.classList.add('coupon-success-msg', 'cquiz-message-slideup', 'closed');
+                            message.textContent = response.message;
+                            cqSendCouponForm.after(message);
+                            message.classList.remove('closed');
+                            setTimeout(function () {
+                                message.classList.add('closed');
+                            }, 5000);
+                        } else {
+                            cqEmail.value = '';
+                            addErrorMsgToSendCouponForm(cqSendCouponForm, response.message);
+                        }
+                    } else {
+                        addErrorMsgToSendCouponForm(cqSendCouponForm, 'Request failed');
+                    }
+                    cqSendCouponForm.classList.remove('cquiz-loading');
+                };
+                request.onerror = function () {
+                    cqSendCouponForm.classList.remove('cquiz-loading');
+                    console.error('Request failed');
+                };
+                cqSendCouponForm.classList.add('cquiz-loading');
+                request.send(data);
 
-        function isEmail(email) {
-            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            return regex.test( email );
+            });
+
+            function isEmail(email) {
+                var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                return regex.test(email);
+            }
         }
 
     });

@@ -434,7 +434,6 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
          * iframe for adding new question
          */
         public function modal_window_content() {
-            define( 'IFRAME_REQUEST', true );
             iframe_header();
             wp_enqueue_media();
             require 'partials/modal-add-new-question.php';

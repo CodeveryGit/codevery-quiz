@@ -56,6 +56,7 @@ if ( ! class_exists( 'Codevery_Quiz_Email_List' ) ) {
                 <?php
                 if ( ! empty( $_REQUEST['s'] ) ) {
                     echo sprintf( '<span class="subtitle">'
+                        /* translators: %s: Search query. */
                         . esc_html__( 'Search results for &#8220;%s&#8221;', 'codevery-quiz' )
                         . '</span>', esc_html( sanitize_text_field( wp_unslash( $_REQUEST['s'] ) ) ) );
                 }
