@@ -24,8 +24,8 @@ if ( ! class_exists( 'Codevery_Quiz_Email_List_Table' ) ) {
          */
         public function __construct() {
             parent::__construct( array(
-                'singular' => __( 'Email', 'codevery-quiz' ),
-                'plural'   => __( 'Emails', 'codevery-quiz' ),
+                'singular' => 'email',
+                'plural'   => 'emails',
                 'ajax'     => false,
             ) );
         }
