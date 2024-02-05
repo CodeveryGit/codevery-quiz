@@ -295,9 +295,11 @@
             },
             beforeSend: () => {
                 exportButton.css( 'pointer-events', 'none' );
+                document.body.style.opacity = '0.7';
             },
             success: ( response ) => {
                 exportButton.css( 'pointer-events', 'auto' );
+                document.body.style.opacity = '1';
                 if ( response.success ) {
                     let link = document.createElement( 'a' );
                     let file = new Blob( [response.data.file_content], { type: 'text/csv' } );

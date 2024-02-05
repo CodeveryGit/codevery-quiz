@@ -102,7 +102,7 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
 
             $min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
             $current_screen = get_current_screen();
-            if ( $current_screen->post_type == CODEVERY_QUIZ_POST_TYPE || $current_screen->post_type == 'quiz_question' || ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'cquiz_modal_window' ) || $current_screen->base == 'quizzes_page_email_list' ) {
+            if ( $current_screen->post_type == CODEVERY_QUIZ_POST_TYPE || $current_screen->post_type == 'quiz_question' || ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'cquiz_modal_window' ) || str_contains( $current_screen->base, 'page_email_list' ) ) {
                 wp_enqueue_script( 'cquiz-select2', CODEVERY_QUIZ_PLUGIN_URI_ASSETS . 'js/select2.min.js', array( 'jquery' ), $this->version, false );
                 wp_enqueue_script( 'jquery-ui-sortable' );
                 wp_enqueue_script($this->plugin_name . '-repeater', CODEVERY_QUIZ_PLUGIN_URI_ASSETS . 'js/cquiz-repeater' . $min . '.js', array( 'jquery', 'cquiz-select2' ), $this->version, false );
