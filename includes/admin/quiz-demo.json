@@ -145,15 +145,15 @@
       "question_type":"image",
       "question_options":[
         {
+          "image_id":"German-Sheherd.jpg",
+          "option":"German Shepherd",
+          "description":"German Shepherds are highly intelligent and versatile dogs commonly used for police and military work, search and rescue, and service roles. But they are not typically the most popular breed."
+        },
+        {
           "image_id":"Labrador-Retriever.jpg",
           "option":"Labrador Retriever",
           "description":"This big, friendly dog is a favorite pet. Years ago, their job was to retrieve game and help fishermen pull in their nets. Now, because they're so playful and sweet, they're an ideal family dog. They get along well with kids and other pets. They're kind, outgoing, and happy to be part of a busy family.",
           "answer":true
-        },
-        {
-          "image_id":"German-Sheherd.jpg",
-          "option":"German Shepherd",
-          "description":"German Shepherds are highly intelligent and versatile dogs commonly used for police and military work, search and rescue, and service roles. But they are not typically the most popular breed."
         },
         {
           "image_id":"Chihuahua.jpg",
