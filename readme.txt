@@ -1,11 +1,11 @@
-=== Codevery Quiz Plugin ===
+=== Codevery Quiz ===
 Contributors: codevery
 Donate link: https://u24.gov.ua/
 Tags: quiz, questions, answers, points, coupon, discount
 Requires at least: 5.0
 Requires PHP: 7.4
-Tested up to: 6.4
-Stable tag: 1.0.0
+Tested up to: 6.5.2
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,12 +71,19 @@ Please note that the coupon functionality is designed to work exclusively with W
 
 == Screenshots ==
 
-1. Quiz creation screen
-2. Quiz customization options
-3. Question creation screen
-4. Sample quiz
+1. Sample quiz
+2. Incorrect answer
+3. Correct answer
+4. Successful result page
+5. Question editing screen
+6. Quiz settings - coupon customization
+7. Quiz settings - adding questions
 
 == Changelog ==
+
+= 1.0.1 =
+
+Tested up to: 6.5.2
 
 = 1.0.0 =
 
