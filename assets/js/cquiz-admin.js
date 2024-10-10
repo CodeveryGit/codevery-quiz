@@ -120,6 +120,10 @@
         $( '.display_email_form' ).on( 'click', function () {
             $( '.display-email-form-fields' ).slideToggle();
         });
+        $( '.cquiz-has-dependent-fields' ).on( 'click', function () {
+            let fieldName = $(this).attr('name');
+            $( '.' + fieldName + '-fields' ).slideToggle();
+        });
         $( 'input[name="question_type"]' ).on('change', function() {
             var value = $( this ).val();
             $( '.option-type-field' ).removeClass( 'active-type' );

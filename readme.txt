@@ -1,11 +1,11 @@
 === Codevery Quiz ===
 Contributors: codevery
 Donate link: https://u24.gov.ua/
-Tags: quiz, questions, answers, points, coupon, discount
+Tags: quiz, questions, points, coupon, discount
 Requires at least: 5.0
 Requires PHP: 7.4
-Tested up to: 6.5.2
-Stable tag: 1.0.1
+Tested up to: 6.6.2
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,12 @@ Please note that the coupon functionality is designed to work exclusively with W
 7. Quiz settings - adding questions
 
 == Changelog ==
+
+= 1.1.0 =
+
+* Tested up to: 6.6.2
+* Added a progress bar
+* Added a timer
 
 = 1.0.1 =
 

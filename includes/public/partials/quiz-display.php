@@ -12,7 +12,9 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
+global $post;
 $quiz_id = $args['id'];
+$page_id = $post->ID;
 $quiz    = $this->get_quiz( $quiz_id );
 ?>
 <?php if ( $quiz->have_posts() ) : ?>
@@ -20,11 +22,24 @@ $quiz    = $this->get_quiz( $quiz_id );
         $quiz_settings   = $this->get_quiz_settings( $quiz_id );
         $quiz_questions  = $this->get_quiz_questions( $quiz_id );
         $count_questions = is_array( $quiz_questions ) ? count( $quiz_questions ) : 0;
+        $progress_bar = isset( $quiz_settings['progress_bar'] ) ? $quiz_settings['progress_bar'] : '';
+        $quiz_timer = isset( $quiz_settings['quiz_timer'] ) ? $quiz_settings['quiz_timer'] : '';
+        $quiz_time = isset( $quiz_settings['quiz_time'] ) ? $quiz_settings['quiz_time'] : 0;
         ?>
         <div class="cquiz">
             <div class="cquiz__title"><h2><?php the_title(); ?></h2></div>
-            <div class="cquiz__form" data-max-points="<?php echo esc_attr( $quiz_settings['winner_points'] ); ?>">
+            <div class="cquiz__form" data-page_id="<?php echo $page_id; ?>" data-max-points="<?php echo esc_attr( $quiz_settings['winner_points'] ); ?>" data-timer="<?php echo esc_attr( $quiz_timer ); ?>" data-time="<?php echo esc_attr( $quiz_time ); ?>" data-progress_bar="<?php echo esc_attr( $progress_bar ); ?>" >
                 <?php wp_nonce_field( 'cquiz_display', 'cquiz_display_nonce' ); ?>
+
+                <div class="cquiz__countdown">
+                    <?php if ( $quiz_timer ) : ?>
+                        <div id="cquiz__countdown-time">00:00</div>
+                    <?php endif; ?>
+                    <?php if ( $progress_bar ) : ?>
+                        <div class="cquiz__countdown-line-bg"><div class="cquiz__countdown-line"></div></div>
+                    <?php endif; ?>
+                </div>
+
                 <div class="cquiz__wrap" data-quiz-id="<?php echo esc_attr( get_the_ID() ); ?>" data-question-page="0" data-question-length="<?php echo esc_attr( count( $quiz_questions ) ); ?>">
 
                     <p class="cquiz__page-title" data-page=""> <?php echo esc_html( get_the_title() ); ?> </p>
@@ -112,14 +127,56 @@ $quiz    = $this->get_quiz( $quiz_id );
                                 // To allow form fields.
                                 echo wp_kses( $text_quiz_winner, codevery_quiz_get_kses_array() );
                                 ?>
-                                <?php do_action( 'cquiz_result_page' ); ?>
+
+                                <?php
+                                /**
+                                 * Fires after a quiz is completed on the success result page.
+                                 *
+                                 * @since 1.1.0
+                                 *
+                                 * @param int $quiz_id current quiz ID
+                                 */
+                                do_action( 'cquiz_result_page_success', $quiz_id );
+                                ?>
+
+                                <?php
+                                /**
+                                 * Fires after a quiz is completed on the result page.
+                                 *
+                                 * @since 1.0.0
+                                 *
+                                 * @param int $quiz_id current quiz ID
+                                 */
+                                do_action( 'cquiz_result_page', $quiz_id );
+                                ?>
                             </div>
                         </div>
                         <div class="cquiz__fail">
                             <p class="cquiz__result-points"></p>
                             <div class="cquiz__description">
                                 <?php echo wp_kses_post( $quiz_settings['text_quiz_looser'] ); ?>
-                                <?php do_action( 'cquiz_result_page' ); ?>
+
+                                <?php
+                                /**
+                                 * Fires after a quiz is completed on the fail result page.
+                                 *
+                                 * @since 1.1.0
+                                 *
+                                 * @param int $quiz_id current quiz ID
+                                 */
+                                do_action( 'cquiz_result_page_fail', $quiz_id );
+                                ?>
+
+                                <?php
+                                /**
+                                 * Fires after a quiz is completed on the result page.
+                                 *
+                                 * @since 1.0.0
+                                 *
+                                 * @param int $quiz_id current quiz ID
+                                 */
+                                do_action( 'cquiz_result_page', $quiz_id );
+                                ?>
                             </div>
                         </div>
                     </div>

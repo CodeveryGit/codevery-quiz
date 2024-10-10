@@ -4,7 +4,7 @@
  * Plugin Name:       Codevery Quiz
  * Plugin URI:        https://quiz-plugin.codevery.com/
  * Description:       Create engaging quizzes on your WordPress site and offer incentives for high scores. Users can earn discount coupons based on their quiz results.
- * Version:           1.0.1
+ * Version:           1.1.0
  * Author:            Codevery
  * Author URI:        https://profiles.wordpress.org/codevery/
  * License:           GPL-2.0+
@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
     die;
 }
 
-define( 'CODEVERY_QUIZ_VERSION', '1.0.0' );
+define( 'CODEVERY_QUIZ_VERSION', '1.1.0' );
 define( 'CODEVERY_QUIZ_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CODEVERY_QUIZ_PLUGIN_DIR_ADMIN', plugin_dir_path( __FILE__ ) . 'includes/admin/' );
 define( 'CODEVERY_QUIZ_PLUGIN_URI', plugin_dir_url( __FILE__ ) );

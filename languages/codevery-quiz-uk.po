@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Codevery Quiz\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-17 12:31+0000\n"
-"PO-Revision-Date: 2024-01-17 13:48+0000\n"
+"PO-Revision-Date: 2024-10-09 12:03+0000\n"
 "Last-Translator: \n"
-"Language-Team: Ukrainian\n"
+"Language-Team: Українська\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
 "n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.6; wp-6.4.2\n"
+"X-Loco-Version: 2.6.11; wp-6.6.2\n"
 "X-Domain: codevery-quiz"
 
 #. 1: date, 2: time
@@ -22,7 +22,7 @@ msgstr ""
 msgid "%1$s at %2$s"
 msgstr "%1$s at %2$s"
 
-#: includes/admin/codevery-quiz-admin.php:254
+#: includes/admin/codevery-quiz-admin.php:258
 msgid "&nbsp;"
 msgstr "&nbsp;"
 
@@ -30,41 +30,41 @@ msgstr "&nbsp;"
 msgid "(this warning can only be seen by the administrator)"
 msgstr "(це попередження може бачити лише адміністратор)"
 
-#: includes/admin/partials/quiz-settings.php:48
-#: includes/admin/partials/quiz-settings.php:143
+#: includes/admin/partials/quiz-settings.php:50
+#: includes/admin/partials/quiz-settings.php:146
 msgid "+ Add New Question"
 msgstr "+ Додати нове питання"
 
-#: includes/admin/partials/quiz-settings.php:288
+#: includes/admin/partials/quiz-settings.php:317
 msgid "1 week"
 msgstr "1 тиждень"
 
-#: includes/admin/partials/quiz-settings.php:289
+#: includes/admin/partials/quiz-settings.php:318
 msgid "2 weeks"
 msgstr "2 тижні"
 
-#: includes/admin/partials/quiz-settings.php:290
+#: includes/admin/partials/quiz-settings.php:319
 msgid "3 weeks"
 msgstr "3 тижні"
 
-#: includes/admin/partials/quiz-settings.php:291
+#: includes/admin/partials/quiz-settings.php:320
 msgid "4 weeks"
 msgstr "4 тижні"
 
 #. %s: Site name.
-#: includes/public/class-codevery-quiz-public.php:229
+#: includes/public/class-codevery-quiz-public.php:234
 #, php-format
 msgid "[%s]: Certificate"
 msgstr "[%s]: Сертифікат"
 
-#: includes/admin/partials/modal-add-new-question.php:107
-#: includes/admin/partials/question-settings.php:130
+#: includes/admin/partials/modal-add-new-question.php:117
+#: includes/admin/partials/question-settings.php:131
 msgid "Add Answer"
 msgstr "Додати Відповідь"
 
 #: includes/cquiz-post-types.php:78 includes/cquiz-post-types.php:79
-#: includes/admin/partials/quiz-settings.php:48
-#: includes/admin/partials/quiz-settings.php:143
+#: includes/admin/partials/quiz-settings.php:50
+#: includes/admin/partials/quiz-settings.php:146
 msgid "Add New Question"
 msgstr "Додати нове питання"
 
@@ -72,25 +72,25 @@ msgstr "Додати нове питання"
 msgid "Add New Quiz"
 msgstr "Додати нову вікторину"
 
-#: includes/admin/partials/quiz-settings.php:167
+#: includes/admin/partials/quiz-settings.php:170
 msgid "Add Question"
 msgstr "Додати питання"
 
-#: includes/admin/partials/modal-add-new-question.php:40
-#: includes/admin/partials/modal-add-new-question.php:48
-#: includes/admin/partials/modal-add-new-question.php:75
-#: includes/admin/partials/modal-add-new-question.php:83
-#: includes/admin/partials/question-settings.php:26
-#: includes/admin/partials/question-settings.php:34
-#: includes/admin/partials/question-settings.php:62
-#: includes/admin/partials/question-settings.php:71
-#: includes/admin/partials/question-settings.php:98
-#: includes/admin/partials/question-settings.php:106
+#: includes/admin/partials/modal-add-new-question.php:50
+#: includes/admin/partials/modal-add-new-question.php:58
+#: includes/admin/partials/modal-add-new-question.php:85
+#: includes/admin/partials/modal-add-new-question.php:93
+#: includes/admin/partials/question-settings.php:27
+#: includes/admin/partials/question-settings.php:35
+#: includes/admin/partials/question-settings.php:63
+#: includes/admin/partials/question-settings.php:72
+#: includes/admin/partials/question-settings.php:99
+#: includes/admin/partials/question-settings.php:107
 msgid "Answer"
 msgstr "Відповідь"
 
-#: includes/admin/codevery-quiz-admin.php:256
-#: includes/admin/partials/modal-add-new-question.php:14
+#: includes/admin/codevery-quiz-admin.php:260
+#: includes/admin/partials/modal-add-new-question.php:24
 msgid "Answers"
 msgstr "Відповіді"
 
@@ -102,23 +102,23 @@ msgstr "Ви впевнені, що хочете видалити цей email?"
 msgid "Are you sure you want to remove this question from the list?"
 msgstr "Ви впевнені, що хочете видалити це питання зі списку?"
 
-#: includes/admin/partials/quiz-settings.php:296
+#: includes/admin/partials/quiz-settings.php:325
 msgid "Background Color"
 msgstr "Колір фону"
 
-#: includes/admin/codevery-quiz-admin.php:278
+#: includes/admin/codevery-quiz-admin.php:286
 msgid "Better luck next time!"
 msgstr "Пощастить наступного разу!"
 
-#: includes/admin/codevery-quiz-admin.php:280
+#: includes/admin/codevery-quiz-admin.php:288
 msgid "Certificate"
 msgstr "Сертифікат"
 
-#: includes/admin/partials/quiz-settings.php:28
-#: includes/admin/partials/quiz-settings.php:38
-#: includes/admin/partials/quiz-settings.php:92
-#: includes/admin/partials/quiz-settings.php:123
-#: includes/admin/partials/quiz-settings.php:133
+#: includes/admin/partials/quiz-settings.php:29
+#: includes/admin/partials/quiz-settings.php:39
+#: includes/admin/partials/quiz-settings.php:94
+#: includes/admin/partials/quiz-settings.php:125
+#: includes/admin/partials/quiz-settings.php:135
 msgid "Choose Question"
 msgstr "Вибрати питання"
 
@@ -130,47 +130,47 @@ msgstr "Codevery"
 msgid "Codevery Quiz"
 msgstr "Codevery Quiz"
 
-#: includes/admin/partials/quiz-settings.php:235
+#: includes/admin/partials/quiz-settings.php:259
 msgid "Colors"
 msgstr "Кольори"
 
-#: includes/admin/codevery-quiz-admin.php:276
+#: includes/admin/codevery-quiz-admin.php:284
 msgid "Congratulations!"
 msgstr "Вітаємо!"
 
-#: includes/admin/codevery-quiz-admin.php:317
+#: includes/admin/codevery-quiz-admin.php:325
 msgid "Copy this shortcode and paste it into your page or post:"
 msgstr "Скопіюйте цей шорткод і вставте його на свою сторінку чи допис:"
 
-#: includes/public/partials/quiz-display.php:83
+#: includes/public/partials/quiz-display.php:98
 msgid "Correct"
 msgstr "Правильно"
 
-#: includes/admin/partials/quiz-settings.php:244
+#: includes/admin/partials/quiz-settings.php:273
 msgid "Correct Answer"
 msgstr "Правильна відповідь"
 
-#: includes/admin/partials/modal-add-new-question.php:60
-#: includes/admin/partials/modal-add-new-question.php:95
-#: includes/admin/partials/question-settings.php:46
-#: includes/admin/partials/question-settings.php:83
-#: includes/admin/partials/question-settings.php:118
+#: includes/admin/partials/modal-add-new-question.php:70
+#: includes/admin/partials/modal-add-new-question.php:105
+#: includes/admin/partials/question-settings.php:47
+#: includes/admin/partials/question-settings.php:84
+#: includes/admin/partials/question-settings.php:119
 msgid "Correct answer"
 msgstr "Правильна відповідь"
 
-#: includes/admin/partials/quiz-settings.php:14
+#: includes/admin/partials/quiz-settings.php:15
 msgid "Coupon"
 msgstr "Купон"
 
-#: includes/admin/partials/quiz-settings.php:282
+#: includes/admin/partials/quiz-settings.php:311
 msgid "Coupon amount, %"
 msgstr "Сума купона, %"
 
-#: includes/admin/partials/quiz-settings.php:371
+#: includes/admin/partials/quiz-settings.php:400
 msgid "Coupon description"
 msgstr "Опис купона"
 
-#: includes/admin/partials/quiz-settings.php:286
+#: includes/admin/partials/quiz-settings.php:315
 msgid "Coupon expiration date"
 msgstr "Термін дії купона"
 
@@ -187,24 +187,24 @@ msgstr ""
 msgid "Delete permanently"
 msgstr "Видалити остаточно"
 
-#: includes/admin/partials/modal-add-new-question.php:54
-#: includes/admin/partials/modal-add-new-question.php:89
-#: includes/admin/partials/question-settings.php:38
-#: includes/admin/partials/question-settings.php:40
-#: includes/admin/partials/question-settings.php:77
-#: includes/admin/partials/question-settings.php:112
+#: includes/admin/partials/modal-add-new-question.php:64
+#: includes/admin/partials/modal-add-new-question.php:99
+#: includes/admin/partials/question-settings.php:39
+#: includes/admin/partials/question-settings.php:41
+#: includes/admin/partials/question-settings.php:78
+#: includes/admin/partials/question-settings.php:113
 msgid "Describe why this option is correct or incorrect"
 msgstr "Опишіть, чому цей варіант є правильним або неправильним"
 
-#: includes/admin/partials/modal-add-new-question.php:10
-#: includes/admin/partials/modal-add-new-question.php:52
-#: includes/admin/partials/modal-add-new-question.php:87
-#: includes/admin/partials/question-settings.php:75
-#: includes/admin/partials/question-settings.php:110
+#: includes/admin/partials/modal-add-new-question.php:20
+#: includes/admin/partials/modal-add-new-question.php:62
+#: includes/admin/partials/modal-add-new-question.php:97
+#: includes/admin/partials/question-settings.php:76
+#: includes/admin/partials/question-settings.php:111
 msgid "Description"
 msgstr "Опис"
 
-#: includes/admin/partials/quiz-settings.php:389
+#: includes/admin/partials/quiz-settings.php:418
 msgid "Display Email Form"
 msgstr "Показати форму для email"
 
@@ -216,16 +216,15 @@ msgstr "Редагувати питання"
 msgid "Edit Quiz"
 msgstr "Редагувати вікторину"
 
-#: includes/admin/class-email-list-table.php:27
 #: includes/admin/class-email-list-table.php:41
 msgid "Email"
 msgstr "Email"
 
-#: includes/admin/class-codevery-quiz-email-list.php:69
+#: includes/admin/class-codevery-quiz-email-list.php:70
 msgid "Email deleted."
 msgstr "Email видалено."
 
-#: includes/admin/partials/quiz-settings.php:411
+#: includes/admin/partials/quiz-settings.php:443
 msgid "Email Layout"
 msgstr "Email шаблон"
 
@@ -234,15 +233,11 @@ msgstr "Email шаблон"
 msgid "Email List"
 msgstr "Список email-адрес"
 
-#: includes/admin/partials/quiz-settings.php:385
+#: includes/admin/partials/quiz-settings.php:414
 msgid "Email Settings"
 msgstr "Налаштування email"
 
-#: includes/admin/class-email-list-table.php:28
-msgid "Emails"
-msgstr "Email-адреси"
-
-#: includes/admin/class-codevery-quiz-email-list.php:75
+#: includes/admin/class-codevery-quiz-email-list.php:76
 msgid "Emails deleted."
 msgstr "Email-адреси видалено."
 
@@ -250,31 +245,31 @@ msgstr "Email-адреси видалено."
 msgid "Enter Email"
 msgstr "Введіть email"
 
-#: includes/admin/class-codevery-quiz-email-list.php:155
+#: includes/admin/class-codevery-quiz-email-list.php:156
 msgid "Error in deleting."
 msgstr "Помилка при видаленні."
 
-#: includes/admin/partials/quiz-settings.php:305
+#: includes/admin/partials/quiz-settings.php:334
 msgid "Expire Date Format"
 msgstr "Формат дати терміну дії"
 
-#: includes/admin/class-codevery-quiz-email-list.php:84
+#: includes/admin/class-codevery-quiz-email-list.php:85
 msgid "Export"
 msgstr "Експорт"
 
-#: includes/admin/class-codevery-quiz-email-list.php:86
+#: includes/admin/class-codevery-quiz-email-list.php:87
 msgid "Export your email list as a CSV file quickly and easily."
 msgstr "Швидко та легко експортуйте свій список email-адрес у файл CSV."
 
-#: includes/admin/partials/quiz-settings.php:221
+#: includes/admin/partials/quiz-settings.php:245
 msgid "Fail description"
 msgstr "Опис при невдалій спробі"
 
-#: includes/admin/partials/quiz-settings.php:216
+#: includes/admin/partials/quiz-settings.php:240
 msgid "Fail title"
 msgstr "Заголовок при невдалій спробі"
 
-#: includes/admin/partials/quiz-settings.php:396
+#: includes/admin/partials/quiz-settings.php:428
 msgid "Form description"
 msgstr "Опис форми"
 
@@ -287,23 +282,23 @@ msgstr "g:i a"
 msgid "Go to the website"
 msgstr "Перейти на веб-сайт"
 
-#: includes/admin/partials/quiz-settings.php:176
+#: includes/admin/partials/quiz-settings.php:179
 msgid "here"
 msgstr "тут"
 
-#: includes/admin/partials/quiz-settings.php:300
+#: includes/admin/partials/quiz-settings.php:329
 msgid "Highlighted Color"
 msgstr "Колір виділення"
-
-#. URI of the plugin
-msgid "https://codevery.com/"
-msgstr "https://codevery.com/"
 
 #. Author URI of the plugin
 msgid "https://profiles.wordpress.org/codevery/"
 msgstr "https://profiles.wordpress.org/codevery/"
 
-#: includes/admin/partials/quiz-settings.php:278
+#. URI of the plugin
+msgid "https://quiz-plugin.codevery.com/"
+msgstr "https://quiz-plugin.codevery.com/ua"
+
+#: includes/admin/partials/quiz-settings.php:307
 msgid ""
 "If you want to add a coupon to your quiz, copy this shortcode and paste it "
 "into the success description:"
@@ -312,16 +307,16 @@ msgstr ""
 "вставте його в опис при успішній спробі:"
 
 #: includes/cquiz-post-types.php:135
-#: includes/admin/partials/modal-add-new-question.php:28
-#: includes/admin/partials/question-settings.php:14
+#: includes/admin/partials/modal-add-new-question.php:38
+#: includes/admin/partials/question-settings.php:15
 msgid "Image"
 msgstr "Зображення"
 
-#: includes/public/partials/quiz-display.php:83
+#: includes/public/partials/quiz-display.php:98
 msgid "Incorrect"
 msgstr "Неправильно"
 
-#: includes/admin/partials/quiz-settings.php:249
+#: includes/admin/partials/quiz-settings.php:278
 msgid "Incorrect Answer"
 msgstr "Неправильна відповідь"
 
@@ -333,7 +328,7 @@ msgstr "Востаннє пройдено"
 msgid "New Question"
 msgstr "Нове питання"
 
-#: includes/admin/codevery-quiz-admin.php:394
+#: includes/admin/codevery-quiz-admin.php:402
 msgid "New question has been saved"
 msgstr "Нове питання збережено"
 
@@ -341,11 +336,11 @@ msgstr "Нове питання збережено"
 msgid "New Quiz"
 msgstr "Нова вікторина"
 
-#: includes/public/partials/quiz-display.php:128
+#: includes/public/partials/quiz-display.php:185
 msgid "Next"
 msgstr "Далі"
 
-#: includes/admin/partials/quiz-settings.php:239
+#: includes/admin/partials/quiz-settings.php:268
 msgid "Option Button (on hover)"
 msgstr "Pадіокнопка (при наведенні)"
 
@@ -357,9 +352,9 @@ msgstr "Будь ласка, введіть дійсний email."
 msgid "Please enter an email address."
 msgstr "Будь ласка, введіть email."
 
-#: includes/admin/partials/quiz-settings.php:54
-#: includes/admin/partials/quiz-settings.php:101
-#: includes/admin/partials/quiz-settings.php:149
+#: includes/admin/partials/quiz-settings.php:56
+#: includes/admin/partials/quiz-settings.php:103
+#: includes/admin/partials/quiz-settings.php:152
 msgid "Points"
 msgstr "Бали"
 
@@ -383,18 +378,23 @@ msgctxt "Post Type Singular Name"
 msgid "Quiz"
 msgstr "Вікторина"
 
-#: includes/admin/partials/quiz-settings.php:431
+#: includes/admin/partials/quiz-settings.php:463
 msgid "Preview"
 msgstr "Попередній перегляд"
 
-#: includes/admin/codevery-quiz-admin.php:281
+#: includes/admin/partials/quiz-settings.php:199
+#: includes/admin/partials/quiz-settings.php:263
+msgid "Progress Bar"
+msgstr "Індикатор прогресу"
+
+#: includes/admin/codevery-quiz-admin.php:289
 msgid "Promo code"
 msgstr "Промокод"
 
 #: includes/cquiz-post-types.php:71
-#: includes/admin/partials/quiz-settings.php:36
-#: includes/admin/partials/quiz-settings.php:90
-#: includes/admin/partials/quiz-settings.php:131
+#: includes/admin/partials/quiz-settings.php:37
+#: includes/admin/partials/quiz-settings.php:92
+#: includes/admin/partials/quiz-settings.php:133
 msgid "Question"
 msgstr "Питання"
 
@@ -403,7 +403,7 @@ msgid "Question Type"
 msgstr "Тип питання"
 
 #: includes/cquiz-post-types.php:75 includes/cquiz-post-types.php:76
-#: includes/cquiz-post-types.php:77 includes/admin/partials/quiz-settings.php:6
+#: includes/cquiz-post-types.php:77 includes/admin/partials/quiz-settings.php:7
 msgid "Questions"
 msgstr "Питання"
 
@@ -429,30 +429,31 @@ msgstr "Email-адреси вікторини"
 msgid "Quizzes"
 msgstr "Вікторини"
 
-#: includes/admin/partials/modal-add-new-question.php:65
-#: includes/admin/partials/modal-add-new-question.php:100
-#: includes/admin/partials/question-settings.php:51
-#: includes/admin/partials/question-settings.php:88
-#: includes/admin/partials/question-settings.php:123
-#: includes/admin/partials/quiz-settings.php:60
-#: includes/admin/partials/quiz-settings.php:107
-#: includes/admin/partials/quiz-settings.php:155
+#: includes/admin/partials/modal-add-new-question.php:75
+#: includes/admin/partials/modal-add-new-question.php:110
+#: includes/admin/partials/question-settings.php:52
+#: includes/admin/partials/question-settings.php:89
+#: includes/admin/partials/question-settings.php:124
+#: includes/admin/partials/quiz-settings.php:62
+#: includes/admin/partials/quiz-settings.php:109
+#: includes/admin/partials/quiz-settings.php:158
 msgid "Remove"
 msgstr "Видалити"
 
-#: includes/admin/codevery-quiz-admin.php:282
+#: includes/admin/codevery-quiz-admin.php:290
 msgid "Sale"
 msgstr "Знижка"
 
-#: includes/admin/partials/modal-add-new-question.php:113
+#: includes/admin/partials/modal-add-new-question.php:123
 msgid "Save"
 msgstr "Зберегти"
 
-#: includes/admin/class-codevery-quiz-email-list.php:91
+#: includes/admin/class-codevery-quiz-email-list.php:92
 msgid "Search emails"
 msgstr "Пошук email-адрес"
 
-#: includes/admin/class-codevery-quiz-email-list.php:59
+#. %s: Search query.
+#: includes/admin/class-codevery-quiz-email-list.php:60
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "Результати пошуку для &#8220;%s&#8221;"
@@ -461,7 +462,7 @@ msgstr "Результати пошуку для &#8220;%s&#8221;"
 msgid "Send"
 msgstr "Відправити"
 
-#: includes/admin/partials/quiz-settings.php:10
+#: includes/admin/partials/quiz-settings.php:11
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -473,59 +474,67 @@ msgstr "Шорткод"
 msgid "Source"
 msgstr "Джерело"
 
-#: includes/admin/codevery-quiz-admin.php:270
-#: includes/admin/partials/quiz-settings.php:192
+#: includes/admin/codevery-quiz-admin.php:275
+#: includes/admin/partials/quiz-settings.php:195
 msgid "Start"
 msgstr "Почати"
 
-#: includes/admin/partials/quiz-settings.php:191
+#: includes/admin/partials/quiz-settings.php:194
 msgid "Start button text"
 msgstr "Текст кнопки «Почати»."
 
-#: includes/admin/partials/quiz-settings.php:201
+#: includes/admin/partials/quiz-settings.php:225
 msgid "Success description"
 msgstr "Опис при успішній спробі"
 
-#: includes/admin/partials/quiz-settings.php:196
+#: includes/admin/partials/quiz-settings.php:220
 msgid "Success title"
 msgstr "Заголовок при успішній спробі"
 
-#: includes/admin/partials/modal-add-new-question.php:23
-#: includes/admin/partials/question-settings.php:9
+#: includes/admin/partials/modal-add-new-question.php:33
+#: includes/admin/partials/question-settings.php:10
 msgid "Text"
 msgstr "Текст"
 
 #. %s: Plugin name.
-#: includes/admin/partials/quiz-settings.php:274
+#: includes/admin/partials/quiz-settings.php:303
 #: includes/public/partials/certificate-display.php:31
 #, php-format
 msgid "The %s plugin must be active for the coupon functionality."
 msgstr "Плагін %s має бути активним для роботи купонів."
 
-#: includes/public/class-codevery-quiz-public.php:272
+#: includes/public/class-codevery-quiz-public.php:277
 msgid "The certificate has been successfully sent!"
 msgstr "Сертифікат успішно відправлено!"
 
-#: includes/public/class-codevery-quiz-public.php:269
+#: includes/public/class-codevery-quiz-public.php:274
 msgid "There was an error trying to send your message. Please try again later."
 msgstr ""
 "Під час спроби надіслати ваше повідомлення сталася помилка. Будь-ласка "
 "спробуйте пізніше."
 
-#: includes/admin/partials/modal-add-new-question.php:6
+#: includes/admin/partials/quiz-settings.php:215
+msgid "Time (in seconds)"
+msgstr "Час (у секундах)"
+
+#: includes/admin/partials/quiz-settings.php:207
+msgid "Timer"
+msgstr "Таймер"
+
+#: includes/admin/partials/modal-add-new-question.php:16
 msgid "Title"
 msgstr "Заголовок"
 
-#: includes/admin/partials/modal-add-new-question.php:19
-#: includes/admin/partials/question-settings.php:5
+#: includes/admin/partials/modal-add-new-question.php:29
+#: includes/admin/partials/question-settings.php:6
 msgid "Type"
 msgstr "Тип"
 
-#: includes/admin/partials/modal-add-new-question.php:44
-#: includes/admin/partials/modal-add-new-question.php:79
-#: includes/admin/partials/question-settings.php:30
-#: includes/admin/partials/question-settings.php:67
-#: includes/admin/partials/question-settings.php:102
+#: includes/admin/partials/modal-add-new-question.php:54
+#: includes/admin/partials/modal-add-new-question.php:89
+#: includes/admin/partials/question-settings.php:31
+#: includes/admin/partials/question-settings.php:68
+#: includes/admin/partials/question-settings.php:103
 msgid "Upload Image"
 msgstr "Зображення"
 
@@ -537,7 +546,7 @@ msgstr "Використання"
 msgid "Valid until"
 msgstr "Дійсний до"
 
-#: includes/admin/codevery-quiz-admin.php:283
+#: includes/admin/codevery-quiz-admin.php:291
 msgid "Valid until:"
 msgstr "Дійсний до:"
 
@@ -549,12 +558,12 @@ msgstr "Переглянути питання"
 msgid "View Quiz"
 msgstr "Переглянути вікторину"
 
-#: includes/admin/codevery-quiz-admin.php:285
-#: includes/admin/partials/quiz-settings.php:398
+#: includes/admin/codevery-quiz-admin.php:293
+#: includes/admin/partials/quiz-settings.php:430
 msgid "We can send you this coupon by email"
 msgstr "Ми можемо надіслати вам цей купон електронною поштою"
 
-#: includes/admin/partials/quiz-settings.php:186
+#: includes/admin/partials/quiz-settings.php:189
 msgid "Winner points"
 msgstr "Переможні бали"
 
@@ -563,17 +572,17 @@ msgstr "Переможні бали"
 msgid "Y/m/d"
 msgstr "Y/m/d"
 
-#: includes/admin/class-codevery-quiz-email-list.php:151
+#: includes/admin/class-codevery-quiz-email-list.php:152
 msgid "You are not allowed to delete this item."
 msgstr "Ви не можете видалити цей елемент."
 
-#: includes/admin/partials/quiz-settings.php:321
+#: includes/admin/partials/quiz-settings.php:350
 msgid "You can change the titles directly on the certificate."
 msgstr "Ви можете змінити назви безпосередньо на сертифікаті."
 
-#: includes/admin/codevery-quiz-admin.php:284
+#: includes/admin/codevery-quiz-admin.php:292
 #: includes/admin/partials/email-layout.php:20
-#: includes/admin/partials/quiz-settings.php:373
+#: includes/admin/partials/quiz-settings.php:402
 msgid ""
 "You can send it to your friend. The discount can be used only once in the "
 "specified period of time."
@@ -585,12 +594,12 @@ msgstr ""
 msgid "You got <b>{score}</b> points"
 msgstr "Ви отримали <b>{score}</b> балів"
 
-#: includes/admin/partials/quiz-settings.php:432
+#: includes/admin/partials/quiz-settings.php:464
 msgid "You have to save your changes first to preview the current version."
 msgstr "Спершу потрібно зберегти зміни, щоб переглянути поточну версію."
 
-#. 1: URL to WordPress Updates screen.
-#: includes/admin/partials/quiz-settings.php:175
+#. 1: URL to Add New Question screen.
+#: includes/admin/partials/quiz-settings.php:178
 #, php-format
 msgid ""
 "You need to create questions first. Click %1$s to create a new question."

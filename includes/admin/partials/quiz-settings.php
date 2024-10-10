@@ -196,6 +196,27 @@
                 </div>
 
                 <div class="cquiz-settings-row">
+                    <label for="progress_bar" class="post-attributes-label"><?php esc_html_e( 'Progress Bar', 'codevery-quiz' ); ?></label>
+                    <label for="progress_bar" class="cquiz-toggle-label">
+                        <input type="checkbox" id="progress_bar" name="progress_bar" class="cquiz-input cquiz-toggle-input" value="yes" <?php checked( $quiz_settings['progress_bar'], 'yes' ); ?> >
+                        <span class="cquiz-toggle"></span>
+                    </label>
+                </div>
+
+                <div class="cquiz-settings-row">
+                    <label for="quiz_timer" class="post-attributes-label"><?php esc_html_e( 'Timer', 'codevery-quiz' ); ?></label>
+                    <label for="quiz_timer" class="cquiz-toggle-label">
+                        <input type="checkbox" id="quiz_timer" name="quiz_timer" class="cquiz-input cquiz-has-dependent-fields cquiz-toggle-input" value="yes" <?php checked( $quiz_settings['quiz_timer'], 'yes' ); ?> >
+                        <span class="cquiz-toggle"></span>
+                    </label>
+                </div>
+
+                <div class="cquiz-settings-row quiz_timer-fields" <?php echo isset( $quiz_settings['quiz_timer'] ) && $quiz_settings['quiz_timer'] == 'yes' ? '' : 'style="display:none;"'; ?>>
+                    <label for="quiz_time" class="post-attributes-label"><?php esc_html_e( 'Time (in seconds)', 'codevery-quiz' ); ?></label>
+                    <input type="number" id="quiz_time" name="quiz_time" class="cquiz-input" value="<?php echo isset( $quiz_settings['quiz_time'] ) ? esc_html( $quiz_settings['quiz_time'] ) : 600; ?>">
+                </div>
+
+                <div class="cquiz-settings-row">
                     <label for="title_quiz_winner" class="post-attributes-label"><?php esc_html_e( 'Success title', 'codevery-quiz' ); ?></label>
                     <input type="text" id="title_quiz_winner" name="title_quiz_winner" class="cquiz-input" value="<?php echo isset( $quiz_settings['title_quiz_winner'] ) ? esc_html( $quiz_settings['title_quiz_winner'] ) : ''; ?>">
                 </div>
@@ -237,6 +258,11 @@
 
                 <h4><?php esc_html_e( 'Colors', 'codevery-quiz' ); ?></h4>
                 <hr><br>
+
+                <div class="cquiz-settings-row">
+                    <label for="progress_bar_color" class="post-attributes-label"><?php esc_html_e( 'Progress Bar', 'codevery-quiz' ); ?></label>
+                    <input class="color_field progress_bar_color" type="text" name="progress_bar_color" id="progress_bar_color" value="<?php echo esc_attr( $quiz_settings['progress_bar_color'] ); ?>"/>
+                </div>
 
                 <div class="cquiz-settings-row">
                     <label for="hover_answer_color" class="post-attributes-label"><?php esc_html_e( 'Option Button (on hover)', 'codevery-quiz' ); ?></label>
@@ -390,7 +416,10 @@
                     <br>
                     <div class="cquiz-settings-row">
                         <label for="display_email_form" class="post-attributes-label"><?php esc_html_e( 'Display Email Form', 'codevery-quiz' ); ?></label>
-                        <input type="checkbox" class="display_email_form" name="display_email_form" id="display_email_form" value="yes" <?php checked( $quiz_settings['display_email_form'], 'yes' ); ?>>
+                        <label for="display_email_form" class="cquiz-toggle-label">
+                            <input type="checkbox" class="display_email_form cquiz-toggle-input" name="display_email_form" id="display_email_form" value="yes" <?php checked( $quiz_settings['display_email_form'], 'yes' ); ?>>
+                            <span class="cquiz-toggle"></span>
+                        </label>
                     </div>
                 </div>
                 <div class="display-email-form-fields" <?php echo $quiz_settings['display_email_form'] == 'yes' ? '' : 'style="display:none"'; ?>>

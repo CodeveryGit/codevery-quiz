@@ -115,6 +115,11 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
 
             $quiz_settings = $this->get_quiz_settings( $atts['id'] );
             ob_start(); ?>
+            <?php if ( isset( $quiz_settings['progress_bar_color'] ) ) : ?>
+                .cquiz__countdown .cquiz__countdown-line {
+                    background-color: <?php echo esc_attr( $quiz_settings['progress_bar_color'] ); ?>;
+                }
+            <?php endif; ?>
             .cquiz__form-input + label.cquiz__form-label:hover .cquiz__card-subtitle:after,
             .cquiz__form-input + label.cquiz__form-label:hover span:after {
                 background-color: <?php echo esc_attr( $quiz_settings['hover_answer_color'] ); ?>;
@@ -156,9 +161,9 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
             wp_add_inline_style( $this->plugin_name . '-dynamic', $styles );
             ob_start();
             require 'partials/quiz-display.php';
-            $quiz = ob_get_clean();
+            $quiz_html = ob_get_clean();
 
-            return apply_filters( 'cquiz_display_quiz_html', $quiz, $quiz_settings, $atts );
+            return apply_filters( 'cquiz_display_quiz_html', $quiz_html, $quiz_settings, $atts );
         }
 
         /**
@@ -175,9 +180,9 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
 
             ob_start();
             require 'partials/certificate-display.php';
-            $certificate = ob_get_clean();
+            $certificate_html = ob_get_clean();
 
-            return apply_filters( 'cquiz_display_certificate_html', $certificate, $attr );
+            return apply_filters( 'cquiz_display_certificate_html', $certificate_html, $attr );
         }
 
         public function send_coupon_to_user() {
@@ -297,14 +302,14 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
             $date_in_two_weeks = date( 'Y-m-d', strtotime( $exp_date ) );
 
             if ( ! $this->check_if_coupon_valid( $coupon_code ) ) {
-                $coupon = array(
+                $coupon_args = array(
                     'post_title'   => $coupon_code,
                     'post_status'  => 'publish',
                     'post_type'    => 'shop_coupon',
                     'post_excerpt' => 'Quiz #' . $quiz_id,
                 );
 
-                $new_coupon_id = wp_insert_post( apply_filters( 'cquiz_create_coupon_args', $coupon, $quiz_id ) );
+                $new_coupon_id = wp_insert_post( apply_filters( 'cquiz_create_coupon_args', $coupon_args, $quiz_id ) );
 
                 // Add coupon meta.
                 update_post_meta( $new_coupon_id, 'discount_type', $discount_type );
@@ -350,12 +355,23 @@ if ( ! class_exists( 'Codevery_Quiz_Public' ) ) {
             if ( ! check_ajax_referer( 'cquiz_display', 'cquiz_display_nonce', false ) ) {
                 wp_send_json_error( 'bad_nonce', 400 );
             }
+
+            $quiz_id = isset( $_POST['quiz_id'] ) ? absint( wp_unslash( $_POST['quiz_id'] ) ) : '';
+
+            /**
+             * Fires when the user wins and before the coupon is added to the database
+             *
+             * @since 1.1.0
+             *
+             * @param int $quiz_id current quiz ID
+             */
+            do_action( 'cquiz_before_adding_coupon', $quiz_id );
+
             if ( ! class_exists( 'WC_Coupon' ) ) {
                 return false;
             }
 
             $coupon_code = isset( $_POST['coupon'] ) ? sanitize_text_field( wp_unslash( $_POST['coupon'] ) ) : '';
-            $quiz_id = isset( $_POST['quiz_id'] ) ? absint( wp_unslash( $_POST['quiz_id'] ) ) : '';
             $quiz_settings = $this->get_quiz_settings( $quiz_id );
             $exp_date = $quiz_settings['expiration_date'];
             $amount = $quiz_settings['coupon_amount'];

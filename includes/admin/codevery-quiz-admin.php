@@ -177,6 +177,9 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
                 $quiz_settings = array(
                     'winner_points'           => isset( $_POST['winner_points'] ) ? absint( $_POST['winner_points'] ) : 0,
                     'start_button_text'       => isset( $_POST['start_button_text'] ) ? sanitize_text_field( $_POST['start_button_text'] ) : '',
+                    'progress_bar'            => isset( $_POST['progress_bar'] ) ? sanitize_text_field( wp_unslash( $_POST['progress_bar'] ) ) : '',
+                    'quiz_timer'              => isset( $_POST['quiz_timer'] ) ? sanitize_text_field( wp_unslash( $_POST['quiz_timer'] ) ) : '',
+                    'quiz_time'               => isset( $_POST['quiz_time'] ) ? absint( $_POST['quiz_time'] ) : 0,
                     'expiration_date'         => isset( $_POST['expiration_date'] ) ? sanitize_text_field( $_POST['expiration_date'] ) : '',
                     'coupon_amount'           => isset( $_POST['coupon_amount'] ) ? absint( $_POST['coupon_amount'] ) : 0,
                     'exp_date_format'         => isset( $_POST['exp_date_format'] ) ? sanitize_text_field( $_POST['exp_date_format'] ) : '',
@@ -186,6 +189,7 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
                     'text_quiz_winner'        => isset( $_POST['text_quiz_winner'] ) ? preg_replace( "/\r|\n/", '', wp_kses_post( wp_unslash( $_POST['text_quiz_winner'] ) ) ) : '',
                     'title_quiz_looser'       => isset( $_POST['title_quiz_looser'] ) ? sanitize_text_field( $_POST['title_quiz_looser'] ) : '',
                     'text_quiz_looser'        => isset( $_POST['text_quiz_looser'] ) ? preg_replace( "/\r|\n/", '', wp_kses_post( wp_unslash( $_POST['text_quiz_looser'] ) ) ) : '',
+                    'progress_bar_color'      => isset( $_POST['progress_bar_color'] ) ? sanitize_hex_color( $_POST['progress_bar_color'] ) : '',
                     'hover_answer_color'      => isset( $_POST['hover_answer_color'] ) ? sanitize_hex_color( $_POST['hover_answer_color'] ) : '',
                     'correct_answer_color'    => isset( $_POST['correct_answer_color'] ) ? sanitize_hex_color( $_POST['correct_answer_color'] ) : '',
                     'incorrect_answer_color'  => isset( $_POST['incorrect_answer_color'] ) ? sanitize_hex_color( $_POST['incorrect_answer_color'] ) : '',
@@ -263,11 +267,15 @@ if ( ! class_exists( 'Codevery_Quiz_Admin' ) ) {
          */
         public function display_meta_quiz_setting( $post_object ) {
             $default_settings = array(
+                'progress_bar_color'      => '#7777EF',
                 'hover_answer_color'      => '#7777EF',
                 'correct_answer_color'    => '#61bd65',
                 'incorrect_answer_color'  => '#d34141',
                 'winner_points'           => '',
                 'start_button_text'       => __( 'Start', 'codevery-quiz' ),
+                'progress_bar'            => '',
+                'quiz_timer'              => '',
+                'quiz_time'               => 600,
                 'expiration_date'         => '+2 weeks',
                 'coupon_amount'           => 5,
                 'exp_date_format'         => 'F j, Y',
